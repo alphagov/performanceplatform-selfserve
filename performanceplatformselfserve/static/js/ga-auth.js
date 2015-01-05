@@ -52,14 +52,13 @@ function queryAccounts () {
 }
 
 function handleAccounts (results) {
+
   if (!results.code) {
     if (results && results.items && results.items.length) {
 
-      // Get the first Google Analytics account
-      var firstAccountId = results.items[0].id;
-
-      // Query for Web Properties
-      queryWebproperties(firstAccountId);
+      $.each(results.items, function(idx, val) {
+        queryWebproperties(val.id);
+      });
 
     } else {
       console.log('No accounts found for this user.')
@@ -80,14 +79,9 @@ function handleWebproperties (results) {
   if (!results.code) {
     if (results && results.items && results.items.length) {
 
-      // Get the first Google Analytics account
-      var firstAccountId = results.items[0].accountId;
-
-      // Get the first Web Property ID
-      var firstWebpropertyId = results.items[0].id;
-
-      // Query for Views (Profiles)
-      queryProfiles(firstAccountId, firstWebpropertyId);
+      $.each(results.items, function(idx, val) {
+        queryProfiles(val.accountId, val.id);
+      });
 
     } else {
       console.log('No webproperties found for this user.');
@@ -129,24 +123,23 @@ function handleProfiles (results) {
 }
 
 function renderViews (results) {
-  var views = document.querySelector('.js-views'),
-    idx = 0,
-    clickedIdx;
+  var $views = $('.js-views');
 
-  results.idx = function() {
-    return idx++;
-  };
+    $.get('/views').done(function(html) {
+        Mustache.parse(html);
+        $.each(results.items, function(idx, item) {
+            var $item = $(Mustache.render(html, item));
+            $views.append($item);
 
-  template('views', results).done(function(html) {
-    views.innerHTML = html;
-    [].forEach.call( views.querySelectorAll('.js-view'), function(el) {
-      el.addEventListener('click', function (evt) {
-        clickedIdx = evt.currentTarget.getAttribute('data-idx');
-        getGoals(results.items[clickedIdx]);
-      }, false);
+            $item.on('click', function () {
+                getGoals({
+                  accountId: item.accountId,
+                  webPropertyId: item.webPropertyId,
+                  id: item.id
+                });
+            });
+      });
     });
-  })
-
 }
 
 function template (id, results) {
@@ -204,5 +197,6 @@ function renderGoals (results) {
 
 document.querySelector('.js-connect-ga').addEventListener('click', function (evt) {
   gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+  $('.js-views-container').removeClass('hidden');
   return false;
 });
