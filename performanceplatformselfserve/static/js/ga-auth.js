@@ -161,9 +161,14 @@ function getGoals (view) {
 function renderGoals (results) {
   var goals = document.querySelector('.js-goals');
 
-  template('goals', results).done(function(html) {
-    goals.innerHTML = html;
-  });
+  if (results.items && results.items.length) {
+    template('goals', results).done(function(html) {
+      goals.innerHTML = html;
+    });
+  } else {
+    goals.innerHTML = '<p>No goals available for the view you have selected.</p>';
+  }
+
 }
 
 //function queryCoreReportingApi(profileId) {
@@ -198,5 +203,6 @@ function renderGoals (results) {
 document.querySelector('.js-connect-ga').addEventListener('click', function (evt) {
   gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
   $('.js-views-container').removeClass('hidden');
+  $('.js-help').addClass('hidden');
   return false;
 });
