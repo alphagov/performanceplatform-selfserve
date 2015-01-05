@@ -1,0 +1,9 @@
+<%
+  css_file = local_assigns[:css_file] || 'application'
+%>
+<!--[if gt IE 8]><!--><%= stylesheet_link_tag css_file %><!--<![endif]-->
+<!--[if IE 6]><%= stylesheet_link_tag "#{css_file}-ie6" %><![endif]-->
+<!--[if IE 7]><%= stylesheet_link_tag "#{css_file}-ie7" %><![endif]-->
+<!--[if IE 8]><%= stylesheet_link_tag "#{css_file}-ie8" %><![endif]-->
+
+<%= stylesheet_link_tag "print", :media => "print" %>

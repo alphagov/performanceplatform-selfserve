@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link href="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <article class="text">
+        <form action="/question2/">
+            {% csrf_token %}
+            <div class="question-number">Question 1 of 5</div>
+            <h1 class="heading-medium"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
+
+            <div class="form-group">
+                <select data-placeholder="Find a dashboard" class="js-dashboard form-control" id="dashboard" required>
+                    <option value=""></option>
+                    <option value="">Blood donation appointments</option>
+                    <option value="">Carer's Allowance applications</option>
+                    <option value="">Certificate to get married abroad: payments</option>
+                    <option value="">Chevening Scholarship applications</option>
+                    <option value="">Civil claims: evicting a tenant using accelerated possession</option>
+                    <option value="">Digital Marketplace</option>
+                    <option value="">Digital Services Store</option>
+                    <option value="">Digital by Default: Service assessments</option>
+                    <option value="">Document legalisation: payments for drop-off service</option>
+                </select>
+            </div>
+            <!--<div class="panel-indent">-->
+            <!--<table class="table-summary">-->
+            <!--<tbody>-->
+            <!--<tr class="table-summary__group">-->
+            <!--<th scope="row">Dashboard</th>-->
+            <!--<td>-->
+            <!--Company accounts filed-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<th scope="row">Description</th>-->
+            <!--<td>All limited companies and limited liability partnerships must-->
+            <!--file-->
+            <!--their annual accounts so they're publicly available.-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<th scope="row">Organisation</th>-->
+            <!--<td>Companies House</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--</div>-->
+            <p>
+                <details>
+                    <summary><span class="summary">I can't find my dashboard</span></summary>
+                    <div class="panel-indent">
+                        <p>
+                            Help text
+                        </p>
+                    </div>
+                </details>
+            </p>
+            <nav>
+                <button class="button">Continue</button>
+            </nav>
+        </form>
+    </article>
+{% endblock %}
+
+{% block javascript %}
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.jquery.js"></script>
+    <script>
+        $('.js-dashboard').chosen();
+    </script>
+{% endblock %}

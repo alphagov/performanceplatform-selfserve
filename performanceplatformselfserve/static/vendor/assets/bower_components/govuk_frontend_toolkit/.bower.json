@@ -1,0 +1,14 @@
+{
+  "name": "govuk_frontend_toolkit",
+  "homepage": "https://github.com/alphagov/govuk_frontend_toolkit",
+  "version": "0.12.6",
+  "_release": "0.12.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.12.6",
+    "commit": "079d2a108df614264cd577cf5c2e1403a20f3655"
+  },
+  "_source": "https://github.com/alphagov/govuk_frontend_toolkit.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/alphagov/govuk_frontend_toolkit.git"
+}

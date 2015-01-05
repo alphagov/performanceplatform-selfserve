@@ -1,0 +1,13 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/alphagov/static",
+  "_release": "0525b14536",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0525b145366ab378f75ad4a7ec0a79f164a26b45"
+  },
+  "_source": "https://github.com/alphagov/static.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/alphagov/static.git"
+}

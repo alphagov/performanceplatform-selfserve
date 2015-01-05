@@ -1,0 +1,12 @@
+{% verbatim %}
+<fieldset class="form-group">
+    <legend class="form-label-bold">Goals</legend>
+    {{#items}}
+    <label class="js-selectable block-label" for="goal-{{ id }}">
+        <input class="js-goal" id="goal-{{ id }}" name="goal" type="radio" value="{{ id }}" data-idx="{{
+idx }}" required>
+        {{ name }}
+    </label>
+    {{/items}}
+</fieldset>
+{% endverbatim %}

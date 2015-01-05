@@ -1,0 +1,1 @@
+web: gunicorn performanceplatformselfserve.wsgi --log-file -

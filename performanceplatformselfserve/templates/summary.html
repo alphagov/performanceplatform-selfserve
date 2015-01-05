@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <article>
+        <form action="/confirmation">
+            <h1 class="heading-medium">Check your dashboard before you send it for review</h1>
+
+            <div class="form-group">
+                <table class="table-summary table-summary--edit">
+                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
+                    <tr>
+                        <th scope="row"><label for="dashboard">Dashboard</label></th>
+                        <td>
+                            <input class="form-control form-control-full-width"
+                                   name="dashboard" id="dashboard" type="text" disabled
+                                   value="Company accounts filed"/>
+                        </td>
+                        <td>
+                            <button class="js-change button table-summary__change" type="button">
+                                Change
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="dashboard-description">Description</label></th>
+                        <td><textarea
+                                class="form-control form-control-full-width"
+                                name="dashboard-description"
+                                id="dashboard-description"
+                                disabled>All limited companies and limited liability partnerships must file their annual accounts so they're publicly available.</textarea>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="dashboard-organisation">Organisation</label></th>
+                        <td><input
+                                class="js-field-organisation form-control form-control-full-width"
+                                name="dashboard-organisation"
+                                id="dashboard-organisation"
+                                type="text" disabled value="Companies House"/>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
+                    <tr>
+                        <th scope="row"><label for="name">Name</label></th>
+                        <td><input name="contact[name]" id="name" type="text"
+                                   class="form-control form-control-full-width"
+                                   value="Henry Hadlow"
+                                   disabled>
+                        </td>
+                        <td>
+                            <button class="js-change button table-summary__change" data-target="js-field-name"
+                                    type="button">
+                                Change
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="email">Email</label></th>
+                        <td><input name="contact[email]" id="email" type="email"
+                                   class="form-control form-control-full-width"
+                                   value="henry.hadlow@digital.cabinet-office.gov.uk"
+                                   disabled>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tr class="js-edit-group is-not-editing">
+                        <th scope="row">Channels</th>
+                        <td>
+                            <fieldset>
+                                <legend class="table-summary__legend form-label-bold">Digital channels</legend>
+                                <label class="is-selected block-label" for="digitalchannels-website">
+                                    <input class="js-selectable" id="digitalchannels-website"
+                                           name="digitalchannels-website"
+                                           type="checkbox" value="website" checked disabled>
+                                    Website
+                                </label>
+                                <label class="block-label" for="digitalchannels-mobileapp">
+                                    <input class="js-selectable" id="digitalchannels-mobileapp"
+                                           name="digitalchannels-mobileapp"
+                                           type="checkbox" value="mobileapp" disabled>
+                                    Mobile app
+                                </label>
+                                <label class="is-selected block-label" for="digitalchannels-api">
+                                    <input class="js-selectable" id="digitalchannels-api" name="digitalchannels-api"
+                                           type="checkbox"
+                                           value="api" checked disabled>
+                                    API
+                                </label>
+                            </fieldset>
+                        </td>
+                        <td>
+                            <button class="js-change button table-summary__change" data-target="js-field-channels"
+                                    type="button">
+                                Change
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="js-edit-group is-not-editing">
+                        <th scope="row">Transactions</th>
+                        <td>
+                            <div>example.xls uploaded</div>
+                        </td>
+                        <td>
+                            <button class="js-change button table-summary__change" data-target="js-field-transactions"
+                                    type="button">
+                                Change
+                            </button>
+                        </td>
+                    </tr>
+                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
+
+                    <tr>
+                        <th scope="row">Analytics</th>
+                        <td>Google Analytics connected</td>
+                        <td>
+                            <button class="js-change button table-summary__change" type="button">Change</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">View ID</th>
+                        <td>
+                            <div class="js-views">
+                                <fieldset>
+                                    <legend class="table-summary__legend form-label-bold">View</legend>
+                                    <label class="block-label">
+                                        <input class="js-selectable" name="views" type="radio" value="website" disabled>
+                                        Whole site
+                                    </label>
+                                    <label class="is-selected block-label">
+                                        <input class="js-selectable" name="views" type="radio" value="mobileapp" checked
+                                               disabled>
+                                        Admin views
+                                    </label>
+                                    <label class="block-label">
+                                        <input class="js-selectable" name="views" type="radio" value="api" disabled>
+                                        Third party integration
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Goal ID</th>
+                        <td>
+                            <div class="js-goals">
+                                <fieldset>
+                                    <legend class="table-summary__legend form-label-bold">Goal</legend>
+                                    <label class="is-selected block-label">
+                                        <input class="js-selectable" name="goals" type="radio" value="website" checked
+                                               disabled>
+                                        tx-complete
+                                    </label>
+                                    <label class="block-label">
+                                        <input class="js-selectable" name="goals" type="radio" value="mobileapp"
+                                               disabled>
+                                        refusal
+                                    </label>
+                                    <label class="block-label">
+                                        <input class="js-selectable" name="goals" type="radio" value="api" disabled>
+                                        lemon party
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tr class="js-edit-group is-not-editing">
+                        <th scope="row"><label for="anything-else">Anything else?</label></th>
+                        <td><textarea class="form-control form-control-full-width"
+                                      id="anything-else"
+                                      name="notes" disabled></textarea></td>
+                        <td>
+                            <button class="js-change button table-summary__change" type="button">Change
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <nav>
+                <a class="button button-external" href="preview.html">Preview dashboard</a>
+                <button class="button">Send for review</button>
+            </nav>
+        </form>
+    </article>
+{% endblock %}
+
+{% block javascript %}
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/static/vendor/assets/bower_components/jquery_autosize/jquery.autosize.min.js"></script>
+    <script src="/static/js/summary.js"></script>
+{% endblock %}

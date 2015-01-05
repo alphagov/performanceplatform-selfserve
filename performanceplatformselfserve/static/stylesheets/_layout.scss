@@ -1,0 +1,6 @@
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/grid_layout';
+
+.main-container {
+  @extend %site-width-container;
+  padding-bottom: 90px;
+}

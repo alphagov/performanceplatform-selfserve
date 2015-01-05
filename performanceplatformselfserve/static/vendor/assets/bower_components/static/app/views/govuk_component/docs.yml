@@ -1,0 +1,261 @@
+- id: "beta_label"
+  name: "Beta Banner"
+  description: "A banner than indicates content is in a beta phase with an optional explanation"
+  fixtures:
+    default: {}
+    with_message:
+      message: "This is an optional different message to explain what Beta means in this context which can take <a href='https://www.gov.uk'>HTML</a>"
+- id: "metadata"
+  name: "Metadata block"
+  description: "To display relevant metadata about organisations and tags for a document"
+  fixtures:
+    from_only:
+      from: "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+    part_of_only:
+     part_of: "<a href='/government/topics/environment'>Environment</a>"
+    history_only:
+      history: "Updated 2 weeks ago"
+    extensive:
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      history: "Updated 2 weeks ago"
+      part_of:
+        - "<a href='/government/topics/energy'>Energy</a>"
+        - "<a href='/government/topics/environment'>Environment</a>"
+      other:
+        "Related topics":
+          - "<a href='/government/topics/arts-and-culture'>Arts and culture</a>"
+          - "<a href='/government/topics/sports-and-leisure'>Sports and leisure</a>"
+        "Applies to": "England"
+    basic_rtl:
+      direction: "rtl"
+      from: "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      history: "Updated 2 weeks ago"
+      part_of: "<a href='/government/topics/environment'>Environment</a>"
+- id: "govspeak"
+  name: "Govspeak content"
+  description: "To display long form text which has been converted from markdown"
+  fixtures:
+    basic_content:
+      content: |
+        <h2>This is a title</h2>
+        <p>This is some body text with <a href=#>a link</a></p>
+    heading_levels:
+      content: |
+        <h2>This is a h2 title</h2>
+        <h3>This is a h3 title</h3>
+        <h4>This is a h4 title</h4>
+        <h5>This is a h5 title</h5>
+        <h6>This is a h6 title</h6>
+    lists:
+      content: |
+        <h2>ordered list:</h2>
+        <ol>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ol>
+        <h2>unordered list:</h2>
+        <ul>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ul>
+    nested_lists:
+      "content": |
+        <h2>ordered list:</h2>
+        <ol>
+          <li>
+            <ul>
+              <li>one</li>
+              <li>two</li>
+            </ul>
+          </li>
+          <li>three</li>
+        </ol>
+        <h2>unordered list:</h2>
+        <ul>
+          <li>
+            <ul>
+              <li>one</li>
+              <li>two</li>
+            </ul>
+          </li>
+          <li>three</li>
+        </ul>
+    legislative_lists:
+      content: |
+        <h2>ordered list:</h2>
+        <ol class="legislative-list">
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ol>
+    blockquote:
+      content: |
+        <blockquote>
+          <p>My quote</p>
+          <p class="last-child">about things</p>
+        </blockquote>
+    call_out_blocks:
+      content: |
+        <div class="information-block">
+          <p>My important information</p>
+          <p>Information</p>
+        </div>
+        <div class="call-to-action">
+          <p>Call to action</p>
+        </div>
+    tables:
+      content: |
+        <table>
+          <caption>A table with data</caption>
+          <thead>
+            <tr>
+              <th>Heading 1</th><th>Heading 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cell 1</td><td>cell 2</td>
+            </tr>
+            <tr>
+              <td>cell 3</td><td>cell 4</td>
+            </tr>
+          </tbody>
+        </table>
+    contact:
+      content: |
+        <div class="contact" id="contact_1017">
+          <div class="content">
+            <h3>Media enquiries</h3>
+            <div class="vcard contact-inner">
+              <p class="adr">
+                <span class="street-address">2 Marsham Street<br>London</span><br>
+                <span class="postal-code">SW1P 4DF</span>
+              </p>
+              <div class="email-url-number">
+                <p class="tel"><span class="type">Press enquiries</span> 020 7XXX XXXX</p>
+                <p class="tel"><span class="type">Out of hours</span> 020 7XXX XXXX</p>
+              </div>
+              <p class="comments">A comment about the contact</p>
+            </div>
+          </div>
+        </div>
+    footnotes:
+      content: |
+        <p>This is a text with a footnote<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+        <div class="footnotes">
+          <ol>
+            <li id="fn:1">
+              <p>And here is the definition. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+            </li>
+          </ol>
+        </div>
+    rtl_content:
+      direction: "rtl"
+      content: |
+        <p>قال وزير الخارجية، ويليام هيغ:</p>
+        <blockquote>
+          <p>مع بدء هذا الشهر الفضيل أتمنى للمسلمين في أنحاء العالم - في آسيا وأفريقيا والشرق الأوسط وأوروبا وغيرها من مناطق العالم - شهر رمضان مبارك.</p>
+          <p class="last-child">في المملكة المتحدة يُحتفل بشهر رمضان منذ أجيال عديدة، ونفتخر بروابطنا القوية مع العالم الإسلامي، سواء مع شركائنا المعهودين في الشرق الأوسط أو روابطنا التاريخية المتينة في آسيا وأفريقيا أو مواطنينا المسلمين البريطانيين المفعمين بالحيوية والنشاط.</p>
+        </blockquote>
+        <h2>ordered list</h2>
+        <ol>
+          <li>تابع الوزير أليستر بيرت عبر تويتر </li>
+          <li>تابعنا باللغة العربية عبر</li>
+          <li>تابعنا باللغة العربية عبر تويتر </li>
+        </ol>
+        <h2>unordered list</h2>
+        <ul>
+          <li>تابع الوزير أليستر بيرت عبر تويتر </li>
+          <li>تابعنا باللغة العربية عبر</li>
+          <li>تابعنا باللغة العربية عبر تويتر </li>
+        </ul>
+- id: "title"
+  name: "Page title"
+  description: "A page title with optional context label"
+  body: |
+    This contains an optional parameter for average title length. The two valid
+    values for this parameter are 'medium' or 'long'. Medium titles are titles
+    where the average is around 30 characters or less. Long titles would have
+    an average length of nearer 50 characters or more.
+
+    On average the titles on government bits of content are 50 characters. The
+    average for bits of general guidance are nearer 27 characters long.
+  fixtures:
+    default:
+      title: "My page title"
+    with_context:
+      context: "Publication"
+      title: "My page title"
+    long_title_with_context:
+      context: "Publication"
+      title: "My page title which is often really long and verbose and has lots of extra words it doesn't need"
+      average_title_length: "long"
+- id: "document_footer"
+  name: "Document footer metadata"
+  description: "A metadata block to be displayed below the document"
+  fixtures:
+    from_only:
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+    part_of_only:
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      part_of:
+        - "<a href='/government/topics/energy'>Energy</a>"
+        - "<a href='/government/topics/environment'>Environment</a>"
+    with_other_metadata:
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      other:
+        "Consultation type": "<a href='/government/publications'>Open</a>"
+    with_other_dates:
+      published: "20 January 2012"
+      other_dates:
+        "Date opened": "1 February 2012"
+        "Date closed": "1 March 2013"
+    non_link_metadata_only:
+      other:
+        "Registration number": '01234'
+        "Another thing": 'This other thing'
+    updated:
+      published: '20 January 2012'
+      updated: '24 January 2012'
+      history:
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
+          note: 'We updated the document'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
+          note: 'We updated the document again'
+    extensive:
+      published: '20 January 2012'
+      updated: '24 January 2012'
+      history:
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
+          note: 'We updated the document'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
+          note: 'We updated the document again'
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      part_of:
+        - "<a href='/government/topics/energy'>Energy</a>"
+        - "<a href='/government/topics/environment'>Environment</a>"
+      other:
+        "Registration number": '01234'
+        "Another thing": 'This other thing'
+    basic_rtl:
+      direction: "rtl"
+      published: '20 January 2012'
+      from: "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+      part_of: "<a href='/government/topics/energy'>Energy</a>"

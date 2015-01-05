@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <article class="text">
+        <div class="question-number">Question 4 of 5</div>
+        <h1 class="heading-medium">Transaction volumes by channel</h1>
+
+        <p>
+            We need to know the number of times people complete your transaction and how they do so.
+        </p>
+
+        <p>We use this information to calculate your digital take-up.</p>
+
+        <div class="form-group">
+            <div class="upload__zone">
+                <form action="/upload" class="dropzone" id="upload">
+                    <div class="fallback">
+                        <input name="file" type="file" multiple/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="form-group">
+            <details>
+                <summary><span class="summary">I want to add a direct feed to my transaction's API</span></summary>
+                <div class="panel-indent">
+                    <p>
+                        Help text
+                    </p>
+                </div>
+            </details>
+        </div>
+        <form action="/question5">
+            <nav>
+                <button class="button">Continue</button>
+            </nav>
+        </form>
+    </article>
+{% endblock %}
+
+{% block javascript %}
+    <script src="/static/vendor/assets/bower_components/dropzone/dropzone.js"></script>
+{% endblock %}

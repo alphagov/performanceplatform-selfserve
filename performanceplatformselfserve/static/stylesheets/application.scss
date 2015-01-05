@@ -1,0 +1,52 @@
+@import '../vendor/assets/bower_components/static/app/assets/stylesheets/helpers/reset';
+
+@import '../vendor/assets/bower_components/govuk_frontend_toolkit/app/assets/stylesheets/colours';
+@import '../vendor/assets/bower_components/govuk_frontend_toolkit/app/assets/stylesheets/shims';
+@import '../vendor/assets/bower_components/govuk_frontend_toolkit/app/assets/stylesheets/font_stack';
+@import '../vendor/assets/bower_components/govuk_frontend_toolkit/app/assets/stylesheets/typography';
+@import '../vendor/assets/bower_components/govuk_frontend_toolkit/app/assets/stylesheets/css3';
+
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/colours';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/device-pixels';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/design-patterns/buttons';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/design-patterns/alpha-beta';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/grid_layout';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/measurements';
+@import '../vendor/assets/bower_components/govuk_elements/govuk/public/sass/typography';
+
+
+@import '../vendor/assets/bower_components/govuk_elements/public/sass/elements/buttons';
+@import '../vendor/assets/bower_components/govuk_elements/public/sass/elements/forms';
+@import '../vendor/assets/bower_components/govuk_elements/public/sass/elements/helpers';
+@import '../vendor/assets/bower_components/govuk_elements/public/sass/elements-page';
+@import '../vendor/assets/bower_components/govuk_elements/public/sass/elements/elements-typography';
+
+@import '../vendor/assets/bower_components/static/app/assets/stylesheets/styleguide/conditionals2';
+@import '../vendor/assets/bower_components/static/app/assets/stylesheets/helpers/core';
+@import '../vendor/assets/bower_components/static/app/assets/stylesheets/helpers/buttons';
+
+@import '../vendor/assets/bower_components/govuk_template_mustache/assets/stylesheets/govuk-template.css';
+
+@import 'layout';
+@import 'table-summary';
+@import 'upload';
+
+.question-number {
+  color: $secondary-text-colour;
+  margin-top: 1.5em;
+}
+
+.button-external {
+  @include button($link-colour);
+}
+
+.heading-confirmation {
+  background-color: $turquoise;
+  color: $white;
+  padding: 30px;
+  text-align: center;
+}
+
+.fa-check-square {
+  color: $turquoise;
+}

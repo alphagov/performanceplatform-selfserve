@@ -1,0 +1,12 @@
+{% verbatim %}
+<fieldset class="form-group">
+    <legend class="form-label-bold">Views [[NOTE: PROFILES?]]</legend>
+    {{#items}}
+    <label class="js-selectable block-label" for="view-{{ id }}">
+        <input class="js-view" id="view-{{ id }}" name="view" type="radio" value="{{ id }}" data-idx="{{
+idx }}" required>
+        {{ name }}
+    </label>
+    {{/items}}
+</fieldset>
+{% endverbatim %}

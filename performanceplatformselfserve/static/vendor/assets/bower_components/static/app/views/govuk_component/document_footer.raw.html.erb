@@ -1,0 +1,78 @@
+<%
+  from ||= []
+  from = Array(from)
+
+  part_of ||= []
+  part_of = Array(part_of)
+
+  history ||= []
+  history = Array(history)
+
+  other ||= nil
+
+  other_dates ||= nil
+
+  direction_class = ""
+  direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+%>
+<div class="govuk-document-footer<%= direction_class %>">
+  <h2 class="visuallyhidden">Document information</h2>
+  <div class="history-information">
+    <% if local_assigns.include?(:published) && published %>
+      <p>Published: <span class="published definition"><%= published %></span></p>
+    <% end %>
+    <% if local_assigns.include?(:updated) && updated %>
+      <p>Updated: <span class="updated definition"><%= updated %></span></p>
+    <% end %>
+    <% if other_dates.present? %>
+      <% other_dates.each do |title, date| %>
+        <p><%= title %>: <span class="other-date definition"><%= date %></span></p>
+      <% end %>
+    <% end %>
+    <% if history.any? %>
+      <div class="change-notes" id="history">
+        <h3>Page history</h3>
+        <ol>
+          <% history.each do |change| %>
+            <li>
+              <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
+              <%= change[:note] %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    <% end %>
+  </div>
+  <div class="related-information">
+    <% if from.any? %>
+      <p>From: <span class="from">
+        <% from.each do |definition| %>
+          <span class="definition">
+            <%= definition.html_safe %>
+          </span>
+        <% end %>
+      </p>
+    <% end %>
+    <% if part_of.any? %>
+      <p>Part of: <span class="part-of">
+        <% part_of.each do |definition| %>
+        <span class="definition">
+          <%= definition.html_safe %>
+        </span>
+        <% end %>
+      </p>
+    <% end %>
+    <% if other.present? %>
+      <% other.each do |title, definitions| %>
+        <% definitions = Array(definitions) %>
+        <p><%= title %>: <span class="other">
+          <% definitions.each do |definition| %>
+            <span class="definition">
+              <%= definition.html_safe %>
+            </span>
+          <% end %>
+        </span></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
