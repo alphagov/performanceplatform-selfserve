@@ -16,9 +16,16 @@
                                    value="Company accounts filed"/>
                         </td>
                         <td>
-                            <button class="js-change button table-summary__change" type="button">
-                                Change
-                            </button>
+                            <div class="buttons">
+                                <div class="buttons__inner">
+                                    <button class="js-change button table-summary__change" type="button">
+                                        Change
+                                    </button>
+                                    <button class="js-cancel hidden button table-summary__change" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -53,10 +60,17 @@
                                    disabled>
                         </td>
                         <td>
-                            <button class="js-change button table-summary__change" data-target="js-field-name"
-                                    type="button">
-                                Change
-                            </button>
+                            <div class="buttons">
+                                <div class="buttons__inner">
+                                    <button class="js-change button table-summary__change" data-target="js-field-name"
+                                            type="button">
+                                        Change
+                                    </button>
+                                    <button class="js-cancel hidden button table-summary__change" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -96,22 +110,41 @@
                             </fieldset>
                         </td>
                         <td>
-                            <button class="js-change button table-summary__change" data-target="js-field-channels"
-                                    type="button">
-                                Change
-                            </button>
+                            <div class="buttons">
+                                <div class="buttons__inner">
+                                    <button class="js-change button table-summary__change"
+                                            data-target="js-field-channels"
+                                            type="button">
+                                        Change
+                                    </button>
+                                    <button class="js-cancel hidden button table-summary__change" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr class="js-edit-group is-not-editing">
                         <th scope="row">Transactions</th>
                         <td>
-                            <div>example.xls uploaded</div>
+                            <p>Uploaded file:</p>
+                            <div>example-data-import.xls</div>
+                            OR
+                            <p>We will email you to set up an API connection.</p>
                         </td>
                         <td>
-                            <button class="js-change button table-summary__change" data-target="js-field-transactions"
-                                    type="button">
-                                Change
-                            </button>
+                            <div class="buttons">
+                                <div class="buttons__inner">
+                                    <button class="js-change button table-summary__change"
+                                            data-target="js-field-transactions"
+                                            type="button">
+                                        Change
+                                    </button>
+                                    <button class="js-cancel hidden button table-summary__change" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tbody class="js-edit-group is-not-editing table-summary__grouped">
@@ -120,7 +153,14 @@
                         <th scope="row">Analytics</th>
                         <td>Google Analytics connected</td>
                         <td>
-                            <button class="js-change button table-summary__change" type="button">Change</button>
+                            <div class="buttons">
+                                <div class="buttons__inner">
+                                    <button class="js-change button table-summary__change" type="button">Change</button>
+                                    <button class="js-cancel hidden button table-summary__change" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -129,6 +169,9 @@
                             <div class="js-views">
                                 <fieldset>
                                     <legend class="table-summary__legend form-label-bold">View</legend>
+                                    {% for item in items %}
+
+                                    {% endfor %}
                                     <label class="block-label">
                                         <input class="js-selectable" name="views" type="radio" value="website" disabled>
                                         Whole site
@@ -177,21 +220,18 @@
                         </td>
                     </tr>
                     </tbody>
-                    <tr class="js-edit-group is-not-editing">
-                        <th scope="row"><label for="anything-else">Anything else?</label></th>
-                        <td><textarea class="form-control form-control-full-width"
-                                      id="anything-else"
-                                      name="notes" disabled></textarea></td>
-                        <td>
-                            <button class="js-change button table-summary__change" type="button">Change
-                            </button>
-                        </td>
-                    </tr>
                 </table>
+            </div>
+            <div class="form-group">
+                <label for="anything-else">Anything else?</label>
+                    <textarea class="form-control form-control-full-width"
+                              id="anything-else"
+                              name="notes" rows="3"></textarea>
             </div>
 
             <nav>
-                <a class="button button-external" href="preview.html">Preview dashboard</a>
+                <a class="button button-external" href="https://www.gov.uk/performance/standard-dashboard"
+                   target="_blank">Preview dashboard</a>
                 <button class="button">Send for review</button>
             </nav>
         </form>

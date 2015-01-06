@@ -67,3 +67,12 @@
   width: 100%;
 }
 
+.buttons {
+  position: relative;
+}
+
+.buttons__inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
