@@ -12,6 +12,10 @@ From /performanceplatformselfserve/static, run 'gulp watch'. It will recompile t
 
 ## Running
 
+python manage.py runserver
+
+or 
+
 foreman start
 
 The app will run at [http://localhost:5000](http://localhost:5000)
