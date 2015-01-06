@@ -1,0 +1,16 @@
+{
+  "dashboard_name": "{{= dashboard_name }}",
+  "dashboard_description": "{{= dashboard_description }}",
+  "dashboard_organisation": "{{= dashboard_organisation }}",
+  "new_dashboard_name": "{{= new_dashboard_name }}",
+  "new_dashboard_description": "{{= new_dashboard_description }}",
+  "new_dashboard_organisation": "{{= new_dashboard_organisation }}",
+  "contact_name": "{{= contact_name }}",
+  "contact_email": "{{= contact_email }}",
+  "digitalchannels": "{{= digitalchannels }}",
+  "nondigitalchannels": "{{= nondigitalchannels }}",
+  "view": "{{= view }}",
+  "goal": "{{= goal }}",
+  "analytics": "{{= analytics }}",
+  "analytics_other_name": "{{= analytics_other_name }}"
+}

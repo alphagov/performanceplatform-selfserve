@@ -5,12 +5,13 @@ import json
 import os
 import urllib2
 
-def get_local_JSON(filename, sort_key):
+def get_local_JSON(filename, sort_key=None):
     json_data = open(os.path.join(os.path.dirname(__file__), 'data/' + filename))
     data1 = json.load(json_data, "utf-8")
-    sorted_data = sorted(data1, key=lambda k: k[sort_key])
+    if (sort_key != None):
+        data1 = sorted(data1, key=lambda k: k[sort_key])
     json_data.close()
-    return sorted_data
+    return data1
 
 def get_remote_JSON(path):
     url = urllib2.urlopen(path)
@@ -65,8 +66,9 @@ def summary(request):
     return HttpResponse(html)
 
 def confirmation(request):
+    model = get_local_JSON('model.json')
     t = get_template('confirmation.html')
-    html = t.render(Context({}))
+    html = t.render(Context(model))
     return HttpResponse(html)
 
 def goals(request):
