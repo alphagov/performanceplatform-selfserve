@@ -1,6 +1,20 @@
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
+import json
+import os
+import urllib2
+
+def get_local_JSON(filename, sort_key):
+    json_data = open(os.path.join(os.path.dirname(__file__), 'data/' + filename))
+    data1 = json.load(json_data, "utf-8")
+    sorted_data = sorted(data1, key=lambda k: k[sort_key])
+    json_data.close()
+    return sorted_data
+
+def get_remote_JSON(path):
+    data = json.load(urllib2.urlopen(path), "utf-8")
+    return data
 
 def default(request):
     t = get_template('index.html')
@@ -9,7 +23,19 @@ def default(request):
 
 def question1(request):
     t = get_template('q1.html')
-    html = t.render(Context({}))
+    dashboards = get_local_JSON('dashboards.json', 'title')
+    organisations = get_local_JSON('organisations.json', 'name')
+    html = t.render(Context({
+        "dashboards": dashboards,
+        "organisations": organisations
+    }))
+    return HttpResponse(html)
+
+def dashboard(request):
+    slug = request.GET.get('slug')
+    data = get_remote_JSON('https://stagecraft.preview.performance.service.gov.uk/public/dashboards?slug=' + slug)
+    t = get_template('partial_dashboard.html')
+    html = t.render(Context(data))
     return HttpResponse(html)
 
 def question2(request):
