@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'performanceplatformselfserve.views.default', name='default'),
     url(r'^question1/', 'performanceplatformselfserve.views.question1', name='question1'),
+    url(r'^dashboard/', 'performanceplatformselfserve.views.dashboard', name='dashboard'),
     url(r'^question2/', 'performanceplatformselfserve.views.question2', name='question2'),
     url(r'^question3/', 'performanceplatformselfserve.views.question3', name='question3'),
     url(r'^question4/', 'performanceplatformselfserve.views.question4', name='question4'),

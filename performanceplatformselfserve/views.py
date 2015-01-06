@@ -13,7 +13,8 @@ def get_local_JSON(filename, sort_key):
     return sorted_data
 
 def get_remote_JSON(path):
-    data = json.load(urllib2.urlopen(path), "utf-8")
+    url = urllib2.urlopen(path)
+    data = json.load(url, "utf-8")
     return data
 
 def default(request):
