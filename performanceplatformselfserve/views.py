@@ -61,8 +61,9 @@ def question5(request):
     return HttpResponse(html)
 
 def summary(request):
+    model = get_local_JSON('model.json')
     t = get_template('summary.html')
-    html = t.render(Context({}))
+    html = t.render(Context(model))
     return HttpResponse(html)
 
 def confirmation(request):

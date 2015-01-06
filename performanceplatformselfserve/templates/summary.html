@@ -13,7 +13,7 @@
                         <td>
                             <input class="form-control form-control-full-width"
                                    name="dashboard" id="dashboard" type="text" disabled
-                                   value="Company accounts filed"/>
+                                   value="{% firstof new_dashboard_name dashboard_name %}"/>
                         </td>
                         <td>
                             <div class="buttons">
@@ -34,7 +34,7 @@
                                 class="form-control form-control-full-width"
                                 name="dashboard-description"
                                 id="dashboard-description"
-                                disabled>All limited companies and limited liability partnerships must file their annual accounts so they're publicly available.</textarea>
+                                disabled>{% firstof new_dashboard_description dashboard_description %}</textarea>
                         </td>
                         <td>
                         </td>
@@ -45,7 +45,7 @@
                                 class="js-field-organisation form-control form-control-full-width"
                                 name="dashboard-organisation"
                                 id="dashboard-organisation"
-                                type="text" disabled value="Companies House"/>
+                                type="text" readonly value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
                         </td>
                         <td>
                         </td>
@@ -56,8 +56,8 @@
                         <th scope="row"><label for="name">Name</label></th>
                         <td><input name="contact[name]" id="name" type="text"
                                    class="form-control form-control-full-width"
-                                   value="Henry Hadlow"
-                                   disabled>
+                                   value="{{ contact_name }}"
+                                   readonly>
                         </td>
                         <td>
                             <div class="buttons">
@@ -77,8 +77,8 @@
                         <th scope="row"><label for="email">Email</label></th>
                         <td><input name="contact[email]" id="email" type="email"
                                    class="form-control form-control-full-width"
-                                   value="henry.hadlow@digital.cabinet-office.gov.uk"
-                                   disabled>
+                                   value="{{ contact_email }}"
+                                   readonly>
                         </td>
                         <td>
                         </td>
@@ -87,27 +87,7 @@
                     <tr class="js-edit-group is-not-editing">
                         <th scope="row">Channels</th>
                         <td>
-                            <fieldset>
-                                <legend class="table-summary__legend form-label-bold">Digital channels</legend>
-                                <label class="is-selected block-label" for="digitalchannels-website">
-                                    <input class="js-selectable" id="digitalchannels-website"
-                                           name="digitalchannels-website"
-                                           type="checkbox" value="website" checked disabled>
-                                    Website
-                                </label>
-                                <label class="block-label" for="digitalchannels-mobileapp">
-                                    <input class="js-selectable" id="digitalchannels-mobileapp"
-                                           name="digitalchannels-mobileapp"
-                                           type="checkbox" value="mobileapp" disabled>
-                                    Mobile app
-                                </label>
-                                <label class="is-selected block-label" for="digitalchannels-api">
-                                    <input class="js-selectable" id="digitalchannels-api" name="digitalchannels-api"
-                                           type="checkbox"
-                                           value="api" checked disabled>
-                                    API
-                                </label>
-                            </fieldset>
+                            {% include "partial_channels.html" %}
                         </td>
                         <td>
                             <div class="buttons">
@@ -173,16 +153,16 @@
 
                                     {% endfor %}
                                     <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="website" disabled>
+                                        <input class="js-selectable" name="views" type="radio" value="website" readonly>
                                         Whole site
                                     </label>
                                     <label class="is-selected block-label">
                                         <input class="js-selectable" name="views" type="radio" value="mobileapp" checked
-                                               disabled>
+                                               readonly>
                                         Admin views
                                     </label>
                                     <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="api" disabled>
+                                        <input class="js-selectable" name="views" type="radio" value="api" readonly>
                                         Third party integration
                                     </label>
                                 </fieldset>
@@ -200,16 +180,16 @@
                                     <legend class="table-summary__legend form-label-bold">Goal</legend>
                                     <label class="is-selected block-label">
                                         <input class="js-selectable" name="goals" type="radio" value="website" checked
-                                               disabled>
+                                               readonly>
                                         tx-complete
                                     </label>
                                     <label class="block-label">
                                         <input class="js-selectable" name="goals" type="radio" value="mobileapp"
-                                               disabled>
+                                               readonly>
                                         refusal
                                     </label>
                                     <label class="block-label">
-                                        <input class="js-selectable" name="goals" type="radio" value="api" disabled>
+                                        <input class="js-selectable" name="goals" type="radio" value="api" readonly>
                                         lemon party
                                     </label>
                                 </fieldset>

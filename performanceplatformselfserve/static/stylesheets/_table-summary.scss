@@ -24,6 +24,10 @@
     }
   }
 
+  .table-summary__legend {
+    display: none;
+  }
+
 }
 
 .table-summary th {
@@ -48,10 +52,6 @@
 .table-summary textarea {
   -webkit-appearance: none;
   resize: none;
-}
-
-.table-summary__legend {
-  display: none;
 }
 
 .table-summary__grouped tr:not(:last-child) th,
