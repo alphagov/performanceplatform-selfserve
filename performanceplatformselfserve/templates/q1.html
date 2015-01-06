@@ -27,20 +27,20 @@
                         <p class="form-group">
 
                             <label class="form-label" for="dashboard-name">Dashboard name</label>
-                            <input name="dashboard-name" id="dashboard-name" type="text" class="form-control" value="">
+                            <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
                         </p>
 
                         <p class="form-group">
 
                             <label class="form-label" for="description">Description</label>
                             <textarea class="form-control form-control-full-width" rows="3"
-                                      name="dashboard-description" id="description"></textarea>
+                                      name="new_dashboard_description" id="description"></textarea>
                         </p>
 
                         <p class="form-group">
                             <label for="organisation">Organisation</label>
                             <br/>
-                            <select id="organisation" name="dashboard-organisation">
+                            <select id="organisation" name="new_dashboard_organisation">
                                 {% for organisation in organisations %}
                                     <option>{{ organisation.name }}</option>
                                 {% endfor %}
