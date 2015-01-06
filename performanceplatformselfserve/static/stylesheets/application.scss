@@ -54,3 +54,8 @@
 .hidden {
   display: none;
 }
+
+.block-label .form-control {
+  position: static;
+  vertical-align: middle;
+}

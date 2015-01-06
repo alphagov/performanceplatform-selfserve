@@ -8,5 +8,8 @@ idx }}" required>
         {{ name }}
     </label>
     {{/items}}
+    {{^items}}
+    <p>You need to <a href="https://support.google.com/analytics/answer/1032415">set up a goal</a> to track completion.</p>
+    {{/items}}
 </fieldset>
 {% endverbatim %}

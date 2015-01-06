@@ -20,16 +20,34 @@
                 </button>
             </div>
             <fieldset class="form-group hidden js-views-container">
-                <legend class="form-label-bold">Views [[NOTE: PROFILES?]]</legend>
+                <legend class="form-label-bold">Profiles</legend>
                 <div class="js-views"></div>
             </fieldset>
 
                 <details class="form-group js-help">
                     <summary><span class="summary">I'm not using Google Analytics</span></summary>
                     <div class="panel-indent">
-                        <p>
-                            Help text
-                        </p>
+                        <fieldset class="form-group">
+                            <legend class="form-label-bold">Which analytics provider are you using?</legend>
+
+                            <label class="js-selectable block-label" for="analytics-omniture">
+                                <input  id="analytics" name="analytics-omniture" type="radio" value="omniture">
+                                Omniture
+                            </label>
+                            <label class="js-selectable block-label" for="analytics-piwik">
+                                <input  id="analytics" name="analytics-piwik" type="radio" value="piwik">
+                                Piwik
+                            </label>
+                            <label class="js-selectable block-label" for="analytics-webtrends">
+                                <input  id="analytics" name="analytics-webtrends" type="radio" value="webtrends">
+                                WebTrends
+                            </label>
+                            <label class="js-selectable block-label" for="analytics-other">
+                                <input  id="analytics" name="analytics-other" type="radio" value="other">
+                                Other: <input class="form-control" type="text" />
+                            </label>
+                        </fieldset>
+                            <p>We will email you to help set up your analytics.</p>
                     </div>
                 </details>
             <div class="js-goals">

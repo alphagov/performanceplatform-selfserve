@@ -125,7 +125,7 @@ function handleProfiles (results) {
 function renderViews (results) {
   var $views = $('.js-views');
 
-    $.get('/views').done(function(html) {
+    $.get('/view_template').done(function(html) {
         Mustache.parse(html);
         $.each(results.items, function(idx, item) {
             var $item = $(Mustache.render(html, item));
@@ -161,14 +161,9 @@ function getGoals (view) {
 function renderGoals (results) {
   var goals = document.querySelector('.js-goals');
 
-  if (results.items && results.items.length) {
-    template('goals', results).done(function(html) {
+  template('goals', results).done(function(html) {
       goals.innerHTML = html;
     });
-  } else {
-    goals.innerHTML = '<p>No goals available for the view you have selected.</p>';
-  }
-
 }
 
 //function queryCoreReportingApi(profileId) {

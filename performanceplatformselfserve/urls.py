@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^confirmation/', 'performanceplatformselfserve.views.confirmation', name='confirmation'),
     url(r'^goals/', 'performanceplatformselfserve.views.goals', name='goals'),
     url(r'^views/', 'performanceplatformselfserve.views.views', name='views'),
+    url(r'^view_template/', 'performanceplatformselfserve.views.view_template', name='view_template'),
 
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
