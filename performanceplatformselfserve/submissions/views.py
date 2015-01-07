@@ -1,5 +1,4 @@
-from django.template.loader import get_template
-from django.template import Context
+from django.template import loader, Context, RequestContext
 from django.http import HttpResponse
 import json
 import os
@@ -23,20 +22,21 @@ def get_remote_JSON(path):
 
 
 def default(request):
-    t = get_template('index.html')
+    request.session.flush()
+    t = loader.get_template('index.html')
     html = t.render(Context({}))
     return HttpResponse(html)
 
 
 def question1(request):
-    t = get_template('q1.html')
+    t = loader.get_template('q1.html')
     dashboards = get_local_JSON('dashboards.json', 'title')
     organisations = get_local_JSON('organisations.json', 'name')
-    html = t.render(Context({
+    context = RequestContext(request, {
         "dashboards": dashboards,
         "organisations": organisations
-    }))
-    return HttpResponse(html)
+    })
+    return HttpResponse(t.render(context))
 
 
 def dashboard(request):
@@ -46,47 +46,91 @@ def dashboard(request):
         'public/dashboards?slug=' +
         slug
         )
-    t = get_template('partial_dashboard.html')
+    t = loader.get_template('partial_dashboard.html')
     html = t.render(Context(data))
     return HttpResponse(html)
 
 
 def question2(request):
-    t = get_template('q2.html')
-    html = t.render(Context({}))
-    return HttpResponse(html)
+    request.session['dashboard_name'] = request.GET.get('dashboard_name')
+    request.session['dashboard_description'] = request.GET.get('dashboard_description')
+    request.session['dashboard_organisation'] = request.GET.get('dashboard_organisation')
+    request.session['new_dashboard_name'] = request.GET.get('new_dashboard_name')
+    request.session['new_dashboard_description'] = request.GET.get('new_dashboard_description')
+    request.session['new_dashboard_organisation'] = request.GET.get('new_dashboard_organisation')
+    t = loader.get_template('q2.html')
+    context = RequestContext(request, {})
+    return HttpResponse(t.render(context))
 
 
 def question3(request):
-    t = get_template('q3.html')
-    html = t.render(Context({}))
-    return HttpResponse(html)
+    request.session['contact_name'] = request.GET.get('contact_name')
+    request.session['contact_email'] = request.GET.get('contact_email')
+    t = loader.get_template('q3.html')
+    context = RequestContext(request, {})
+    return HttpResponse(t.render(context))
 
 
 def question4(request):
-    t = get_template('q4.html')
-    html = t.render(Context({
-        "next_page": (request.GET.get('from') or '/question5')
-    }))
-    return HttpResponse(html)
+    request.session['digitalchannels'] = [
+        c for c in request.GET.getlist('digitalchannels')]
+    request.session['nondigitalchannels'] = [
+        c for c in request.GET.getlist('nondigitalchannels')]
+    t = loader.get_template('q4.html')
+    context = RequestContext(
+        request,
+        {"next_page": (request.GET.get('from') or '/question5')}
+    )
+    return HttpResponse(t.render(context))
 
 
 def question5(request):
-    t = get_template('q5.html')
-    html = t.render(Context({}))
-    return HttpResponse(html)
+    if 'channels_use_direct_api' in request.GET:
+        request.session['channels_use_direct_api'] = 'yes'
+    else:
+        request.session['channels_use_direct_api'] = ''
+    t = loader.get_template('q5.html')
+    context = RequestContext(request, {})
+    return HttpResponse(t.render(context))
 
 
 def summary(request):
-    model = get_local_JSON('model.json')
-    t = get_template('summary.html')
-    html = t.render(Context(model))
-    return HttpResponse(html)
+    request.session['viewlist'] = [
+        c for c in request.GET.getlist('viewlist')]
+    request.session['view'] = request.GET.get('view')
+    request.session['goallist'] = [
+        c for c in request.GET.getlist('goallist')]
+    request.session['goal'] = request.GET.get('goal')
+    request.session['analytics'] = request.GET.get('analytics')
+    request.session['analytics_other_name'] = request.GET.get('analytics_other_name')
+
+    t = loader.get_template('summary.html')
+    context = RequestContext(
+        request,
+        {
+            "dashboard_name": request.session['dashboard_name'],
+            "dashboard_description": request.session['dashboard_description'],
+            "dashboard_organisation": request.session['dashboard_organisation'],
+            "new_dashboard_name": request.session['new_dashboard_name'],
+            "new_dashboard_description": request.session['new_dashboard_description'],
+            "new_dashboard_organisation": request.session['new_dashboard_organisation'],
+            "contact_name": request.session['contact_name'],
+            "contact_email": request.session['contact_email'],
+            "digitalchannels": request.session['digitalchannels'],
+            "nondigitalchannels": request.session['nondigitalchannels'],
+            "channels_use_direct_api": request.session['channels_use_direct_api'],
+            "viewlist": request.session['viewlist'],
+            "view": request.session['view'],
+            "goallist": request.session['goallist'],
+            "goal": request.session['goal']
+        }
+    )
+    return HttpResponse(t.render(context))
 
 
 def confirmation(request):
     model = get_local_JSON('model.json')
-    t = get_template('confirmation.html')
+    t = loader.get_template('confirmation.html')
     html = t.render(Context(model))
     return HttpResponse(html)
 
@@ -98,7 +142,7 @@ def goal_template(request):
 
 
 def views(request):
-    t = get_template('partial_views.html')
+    t = loader.get_template('partial_views.html')
     html = t.render(Context({}))
     return HttpResponse(html)
 

@@ -10,7 +10,6 @@
             {% csrf_token %}
             <div class="question-number"><a class="link-back" href="/"><span class="fa fa-caret-left"></span>Back</a> Question 1 of 5</div>
             <h1 class="heading-medium"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
-
             <div class="form-group">
                 <select data-placeholder="Find a dashboard" class="js-dashboard" id="dashboard" required>
                     {% for dashboard in dashboards %}
