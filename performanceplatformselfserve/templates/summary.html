@@ -45,7 +45,8 @@
                                 class="js-field-organisation form-control form-control-full-width"
                                 name="dashboard-organisation"
                                 id="dashboard-organisation"
-                                type="text" disabled value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
+                                type="text" disabled
+                                value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
                         </td>
                         <td>
                         </td>
@@ -107,19 +108,19 @@
                     <tr class="js-edit-group is-not-editing">
                         <th scope="row">Transactions</th>
                         <td>
-                            <p>Uploaded file:</p>
-                            <div>example-data-import.xls</div>
-                            OR
-                            <p>We will email you to set up an API connection.</p>
+                            {% if channels_use_direct_api == 'yes' %}
+                                <p>We will email you to set up an API connection.</p>
+                            {% else %}
+                                <p>Uploaded file:</p>
+                                <div>example-data-import.xls</div>
+                            {% endif %}
                         </td>
                         <td>
                             <div class="buttons">
                                 <div class="buttons__inner">
-                                    <button class="js-change button table-summary__change"
-                                            data-target="js-field-transactions"
-                                            type="button">
+                                    <a href="/question4?from=/summary" class="button table-summary__change" type="button">
                                         Change
-                                    </button>
+                                    </a>
                                     <button class="js-cancel hidden button table-summary__change" type="button">
                                         Cancel
                                     </button>
