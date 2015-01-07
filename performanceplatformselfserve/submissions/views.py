@@ -105,5 +105,5 @@ def views(request):
 
 def view_template(request):
     tmp = open(os.path.join(os.path.dirname(__file__),
-               'templates/partial_views.html'))
+               '../templates/partial_views.html'))
     return HttpResponse(tmp)
