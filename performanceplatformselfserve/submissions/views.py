@@ -65,7 +65,9 @@ def question3(request):
 
 def question4(request):
     t = get_template('q4.html')
-    html = t.render(Context({}))
+    html = t.render(Context({
+        "next_page": (request.GET.get('from') or '/question5')
+    }))
     return HttpResponse(html)
 
 
