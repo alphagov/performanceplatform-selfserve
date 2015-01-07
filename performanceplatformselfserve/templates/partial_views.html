@@ -1,5 +1,6 @@
 <label class="js-selectable block-label" for="view-{{ id }}">
-    <input class="js-view" id="view-{{ id }}" name="view" type="radio" value="{{ name }} - {{ id }}"
+    <input class="js-view" id="view-{{ id }}" name="view" type="radio" value="{{ name }}"
            data-idx="{{ idx }}" required>
     {{ name }}
 </label>
+<input type="hidden" name="viewlist" value="{{ name }}" />
