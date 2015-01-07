@@ -9,6 +9,7 @@
   "contact_email": "{{= contact_email }}",
   "digitalchannels": "['website','api']",
   "nondigitalchannels": "['facebook','phonehuman']",
+  "channels_use_direct_api": "yes",
   "view": "{{= view }}",
   "goal": "{{= goal }}",
   "analytics": "{{= analytics }}",
