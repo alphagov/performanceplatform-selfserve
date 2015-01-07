@@ -91,10 +91,10 @@ def confirmation(request):
     return HttpResponse(html)
 
 
-def goals(request):
-    t = get_template('partial_goals.html')
-    html = t.render(Context({}))
-    return HttpResponse(html)
+def goal_template(request):
+    tmp = open(os.path.join(os.path.dirname(__file__),
+               '../templates/partial_goals.html'))
+    return HttpResponse(tmp)
 
 
 def views(request):

@@ -104,16 +104,7 @@ function queryProfiles (accountId, webpropertyId) {
 function handleProfiles (results) {
   if (!results.code) {
     if (results && results.items && results.items.length) {
-
       renderViews(results);
-
-
-      // Get the first View (Profile) ID
-      //var firstProfileId = results.items[0].id;
-
-      // Step 3. Query the Core Reporting API
-      //queryCoreReportingApi(firstProfileId);
-
     } else {
       console.log('No views (profiles) found for this user.');
     }
@@ -125,21 +116,21 @@ function handleProfiles (results) {
 function renderViews (results) {
   var $views = $('.js-views');
 
-    $.get('/view_template').done(function(html) {
-        Mustache.parse(html);
-        $.each(results.items, function(idx, item) {
-            var $item = $(Mustache.render(html, item));
-            $views.append($item);
+  $.get('/view_template').done(function(html) {
+      Mustache.parse(html);
+      $.each(results.items, function(idx, item) {
+          var $item = $(Mustache.render(html, item));
+          $views.append($item);
 
-            $item.on('click', function () {
-                getGoals({
-                  accountId: item.accountId,
-                  webPropertyId: item.webPropertyId,
-                  id: item.id
-                });
-            });
-      });
+          $item.on('click', function () {
+              getGoals({
+                accountId: item.accountId,
+                webPropertyId: item.webPropertyId,
+                id: item.id
+              });
+          });
     });
+  });
 }
 
 function template (id, results) {
@@ -161,7 +152,7 @@ function getGoals (view) {
 function renderGoals (results) {
   var goals = document.querySelector('.js-goals');
 
-  template('goals', results).done(function(html) {
+  template('goal_template', results).done(function(html) {
       goals.innerHTML = html;
     });
 }

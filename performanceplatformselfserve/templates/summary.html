@@ -136,7 +136,9 @@
                         <td>
                             <div class="buttons">
                                 <div class="buttons__inner">
-                                    <button class="js-change button table-summary__change" type="button">Change</button>
+                                    <a href="/question5" class="button table-summary__change" type="button">
+                                        Change
+                                    </a>
                                     <button class="js-cancel hidden button table-summary__change" type="button">
                                         Cancel
                                     </button>
@@ -150,22 +152,9 @@
                             <div class="js-views">
                                 <fieldset>
                                     <legend class="table-summary__legend form-label-bold">View</legend>
-                                    {% for item in items %}
-
+                                    {% for viewitem in viewlist %}
+                                        {% include "partial_views.html" with name=viewitem.name selected=view id=forloop.counter %}
                                     {% endfor %}
-                                    <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="website" disabled>
-                                        Whole site
-                                    </label>
-                                    <label class="is-selected block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="mobileapp" checked
-                                               disabled>
-                                        Admin views
-                                    </label>
-                                    <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="api" disabled>
-                                        Third party integration
-                                    </label>
                                 </fieldset>
                             </div>
                         </td>
@@ -179,20 +168,9 @@
                             <div class="js-goals">
                                 <fieldset>
                                     <legend class="table-summary__legend form-label-bold">Goal</legend>
-                                    <label class="is-selected block-label">
-                                        <input class="js-selectable" name="goals" type="radio" value="website" checked
-                                               disabled>
-                                        tx-complete
-                                    </label>
-                                    <label class="block-label">
-                                        <input class="js-selectable" name="goals" type="radio" value="mobileapp"
-                                               disabled>
-                                        refusal
-                                    </label>
-                                    <label class="block-label">
-                                        <input class="js-selectable" name="goals" type="radio" value="api" disabled>
-                                        lemon party
-                                    </label>
+                                    {% for goalitem in goallist %}
+                                        {% include "partial_goal.html" with name=goalitem.name selected=goal id=forloop.counter %}
+                                    {% endfor %}
                                 </fieldset>
                             </div>
                         </td>

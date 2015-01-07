@@ -1,0 +1,6 @@
+<label class="{% if selected == name %}is-selected {% endif %} js-selectable block-label" for="goal-{{ id }}">
+    <input class="js-goal" id="goal-{{ id }}" name="goal" type="radio" value="{{ name }}" required
+           {% if selected == name %}checked {% endif %}>
+    {{ name }}
+</label>
+<input type="hidden" name="goallist" value="{{ name }}"/>
