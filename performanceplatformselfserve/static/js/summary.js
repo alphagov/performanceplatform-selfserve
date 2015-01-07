@@ -12,8 +12,8 @@ function toggleEditMode($changeBtn) {
         .html(function (index, oldHtml) {
             return ($.trim(oldHtml) === 'Change' ? 'Save' : 'Change');
         })
-        .next('.js-cancel')
-        .toggleClass('hidden')
+        //.next('.js-cancel')
+        //.toggleClass('hidden')
         .closest('.js-edit-group')
         .toggleClass('is-not-editing')
         .find('.form-control, .js-selectable')
