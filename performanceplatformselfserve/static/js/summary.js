@@ -35,4 +35,8 @@ $('.js-selectable').on('click', function () {
     }
 });
 
+$('.js-form').on('submit', function() {
+    $('[disabled]').attr('readonly', 'readonly').removeAttr('disabled');
+});
+
 $('textarea').autosize();
