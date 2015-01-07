@@ -1,48 +1,59 @@
-<fieldset>
-    <legend class="table-summary__legend form-label-bold">Digital channels</legend>
-    <label class="{% if "website" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-website">
-        <input class="js-selectable" id="digitalchannels-website"
-               name="digitalchannels"
-               type="checkbox" value="website" {% if "website" in digitalchannels %}checked {% endif %}disabled>
-        Website
-    </label>
-    <label class="{% if "mobileapp" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-mobileapp">
-        <input class="js-selectable" id="digitalchannels-mobileapp"
-               name="digitalchannels"
-               type="checkbox" value="mobileapp" {% if "mobileapp" in digitalchannels %}checked {% endif %} disabled>
-        Mobile app
-    </label>
-    <label class="{% if "api" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-api">
-        <input class="js-selectable" id="digitalchannels-api" name="digitalchannels"
-               type="checkbox"
-               value="api" {% if "api" in digitalchannels %}checked {% endif %} disabled>
-        API
-    </label>
-</fieldset>
+<div class="form-group">
+    <fieldset>
+        <legend class="table-summary__legend form-label-bold">Digital channels</legend>
+        <label class="{% if "website" in digitalchannels %}is-selected {% endif %} block-label"
+               for="digitalchannels-website">
+            <input class="js-selectable" id="digitalchannels-website"
+                   name="digitalchannels"
+                   type="checkbox" value="website" {% if "website" in digitalchannels %}checked {% endif %}disabled>
+            Website
+        </label>
+        <label class="{% if "mobileapp" in digitalchannels %}is-selected {% endif %} block-label"
+               for="digitalchannels-mobileapp">
+            <input class="js-selectable" id="digitalchannels-mobileapp"
+                   name="digitalchannels"
+                   type="checkbox" value="mobileapp" {% if "mobileapp" in digitalchannels %}checked {% endif %}
+                   disabled>
+            Mobile app
+        </label>
+        <label class="{% if "api" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-api">
+            <input class="js-selectable" id="digitalchannels-api" name="digitalchannels"
+                   type="checkbox"
+                   value="api" {% if "api" in digitalchannels %}checked {% endif %} disabled>
+            API
+        </label>
+    </fieldset>
+</div>
 <fieldset class="form-group">
     <legend class="table-summary__legend form-label-bold">Non-digital channels</legend>
-    <label class="{% if "phonehuman" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-phonehuman">
+    <label class="{% if "phonehuman" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-phonehuman">
         <input class="js-selectable" id="digitalchannels-phonehuman" name="nondigitalchannels" type="checkbox"
                value="phonehuman" disabled {% if "phonehuman" in nondigitalchannels %}checked {% endif %}>
         Telephone (human operator)
     </label>
-    <label class="{% if "phoneautomated" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-phoneautomated">
+    <label class="{% if "phoneautomated" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-phoneautomated">
         <input class="js-selectable" id="digitalchannels-phoneautomated" name="nondigitalchannels"
-               type="checkbox" value="phoneautomated" disabled {% if "phoneautomated" in nondigitalchannels %}checked {% endif %}>
+               type="checkbox" value="phoneautomated" disabled
+               {% if "phoneautomated" in nondigitalchannels %}checked {% endif %}>
         Telephone (automated)
     </label>
-    <label class="{% if "paperform" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-paperform">
+    <label class="{% if "paperform" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-paperform">
         <input class="js-selectable" id="digitalchannels-paperform" name="nondigitalchannels" type="checkbox"
                value="paperform" disabled {% if "paperform" in nondigitalchannels %}checked {% endif %}>
         Paper form
     </label>
 
-    <label class="{% if "facetoface" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-facetoface">
+    <label class="{% if "facetoface" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-facetoface">
         <input class="js-selectable" id="digitalchannels-facetoface" name="nondigitalchannels" type="checkbox"
                value="facetoface" disabled {% if "facetoface" in nondigitalchannels %}checked {% endif %}>
         Face to face
     </label>
-    <label class="{% if "email" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-email">
+    <label class="{% if "email" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-email">
         <input class="js-selectable" id="digitalchannels-email" name="nondigitalchannels" type="checkbox"
                value="email" disabled {% if "email" in nondigitalchannels %}checked {% endif %}>
         Email
@@ -52,12 +63,14 @@
                value="fax" disabled {% if "fax" in nondigitalchannels %}checked {% endif %}>
         Fax
     </label>
-    <label class="{% if "facebook" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-facebook">
+    <label class="{% if "facebook" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-facebook">
         <input class="js-selectable" id="digitalchannels-facebook" name="nondigitalchannels" type="checkbox"
                value="facebook" disabled {% if "facebook" in nondigitalchannels %}checked {% endif %}>
         Facebook
     </label>
-    <label class="{% if "twitter" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-twitter">
+    <label class="{% if "twitter" in nondigitalchannels %}is-selected {% endif %} block-label"
+           for="digitalchannels-twitter">
         <input class="js-selectable" id="digitalchannels-twitter" name="nondigitalchannels" type="checkbox"
                value="twitter" disabled {% if "twitter" in nondigitalchannels %}checked {% endif %}>
         Twitter
