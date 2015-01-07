@@ -2,7 +2,7 @@
 
 {% block content %}
     <article>
-        <form action="/confirmation">
+        <form class="js-form" action="/confirmation">
             <h1 class="heading-medium">Check your dashboard before you send it for review</h1>
 
             <div class="form-group">
@@ -45,7 +45,7 @@
                                 class="js-field-organisation form-control form-control-full-width"
                                 name="dashboard-organisation"
                                 id="dashboard-organisation"
-                                type="text" readonly value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
+                                type="text" disabled value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
                         </td>
                         <td>
                         </td>
@@ -57,7 +57,7 @@
                         <td><input name="contact[name]" id="name" type="text"
                                    class="form-control form-control-full-width"
                                    value="{{ contact_name }}"
-                                   readonly>
+                                   disabled>
                         </td>
                         <td>
                             <div class="buttons">
@@ -78,7 +78,7 @@
                         <td><input name="contact[email]" id="email" type="email"
                                    class="form-control form-control-full-width"
                                    value="{{ contact_email }}"
-                                   readonly>
+                                   disabled>
                         </td>
                         <td>
                         </td>
@@ -153,16 +153,16 @@
 
                                     {% endfor %}
                                     <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="website" readonly>
+                                        <input class="js-selectable" name="views" type="radio" value="website" disabled>
                                         Whole site
                                     </label>
                                     <label class="is-selected block-label">
                                         <input class="js-selectable" name="views" type="radio" value="mobileapp" checked
-                                               readonly>
+                                               disabled>
                                         Admin views
                                     </label>
                                     <label class="block-label">
-                                        <input class="js-selectable" name="views" type="radio" value="api" readonly>
+                                        <input class="js-selectable" name="views" type="radio" value="api" disabled>
                                         Third party integration
                                     </label>
                                 </fieldset>
@@ -180,16 +180,16 @@
                                     <legend class="table-summary__legend form-label-bold">Goal</legend>
                                     <label class="is-selected block-label">
                                         <input class="js-selectable" name="goals" type="radio" value="website" checked
-                                               readonly>
+                                               disabled>
                                         tx-complete
                                     </label>
                                     <label class="block-label">
                                         <input class="js-selectable" name="goals" type="radio" value="mobileapp"
-                                               readonly>
+                                               disabled>
                                         refusal
                                     </label>
                                     <label class="block-label">
-                                        <input class="js-selectable" name="goals" type="radio" value="api" readonly>
+                                        <input class="js-selectable" name="goals" type="radio" value="api" disabled>
                                         lemon party
                                     </label>
                                 </fieldset>

@@ -1,22 +1,21 @@
-CHANNELS: {{ digitalchannels }}
 <fieldset>
     <legend class="table-summary__legend form-label-bold">Digital channels</legend>
-    <label class="is-selected block-label" for="digitalchannels-website">
+    <label class="{% if "website" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-website">
         <input class="js-selectable" id="digitalchannels-website"
                name="digitalchannels"
-               type="checkbox" value="website" checked readonly>
+               type="checkbox" value="website" {% if "website" in digitalchannels %}checked {% endif %}disabled>
         Website
     </label>
-    <label class="block-label" for="digitalchannels-mobileapp">
+    <label class="{% if "mobileapp" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-mobileapp">
         <input class="js-selectable" id="digitalchannels-mobileapp"
                name="digitalchannels"
-               type="checkbox" value="mobileapp" readonly>
+               type="checkbox" value="mobileapp" {% if "mobileapp" in digitalchannels %}checked {% endif %} disabled>
         Mobile app
     </label>
-    <label class="is-selected block-label" for="digitalchannels-api">
+    <label class="{% if "api" in digitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-api">
         <input class="js-selectable" id="digitalchannels-api" name="digitalchannels"
                type="checkbox"
-               value="api" checked readonly>
+               value="api" {% if "api" in digitalchannels %}checked {% endif %} disabled>
         API
     </label>
 </fieldset>
@@ -24,44 +23,44 @@ CHANNELS: {{ digitalchannels }}
     <legend class="table-summary__legend form-label-bold">Non-digital channels</legend>
     <label class="block-label" for="digitalchannels-phonehuman">
         <input class="js-selectable" id="digitalchannels-phonehuman" name="nondigitalchannels" type="checkbox"
-               value="website" readonly>
+               value="phonehuman" disabled>
         Telephone (human operator)
     </label>
     <label class="block-label" for="digitalchannels-phoneautomated">
         <input class="js-selectable" id="digitalchannels-phoneautomated" name="nondigitalchannels"
-               type="checkbox" value="mobileapp" readonly>
+               type="checkbox" value="phoneautomated" disabled>
         Telephone (automated)
     </label>
     <label class="block-label" for="digitalchannels-paperform">
         <input class="js-selectable" id="digitalchannels-paperform" name="nondigitalchannels" type="checkbox"
-               value="api" readonly>
+               value="paperform" disabled>
         Paper form
     </label>
 
 
     <label class="block-label" for="digitalchannels-facetoface">
         <input class="js-selectable" id="digitalchannels-facetoface" name="nondigitalchannels" type="checkbox"
-               value="Face to face" readonly>
+               value="facetoface" disabled>
         Face to face
     </label>
     <label class="block-label" for="digitalchannels-email">
         <input class="js-selectable" id="digitalchannels-email" name="nondigitalchannels" type="checkbox"
-               value="Email" readonly>
+               value="email" disabled>
         Email
     </label>
     <label class="block-label" for="digitalchannels-fax">
         <input class="js-selectable" id="digitalchannels-fax" name="nondigitalchannels" type="checkbox"
-               value="Fax" readonly>
+               value="fax" disabled>
         Fax
     </label>
     <label class="block-label" for="digitalchannels-facebook">
         <input class="js-selectable" id="digitalchannels-facebook" name="nondigitalchannels" type="checkbox"
-               value="Facebook" readonly>
+               value="facebook" disabled>
         Facebook
     </label>
     <label class="block-label" for="digitalchannels-twitter">
         <input class="js-selectable" id="digitalchannels-twitter" name="nondigitalchannels" type="checkbox"
-               value="Twitter" readonly>
+               value="twitter" disabled>
         Twitter
     </label>
 </fieldset>
