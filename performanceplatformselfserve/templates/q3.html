@@ -2,7 +2,7 @@
 
 {% block content %}
     <article class="text">
-        <div class="question-number">Question 3 of 5</div>
+        <div class="question-number"><a class="link-back" href="/question2"><span class="fa fa-caret-left"></span>Back</a> Question 3 of 5</div>
         <form action="/question4">
             <h1 class="heading-medium">How can people use your service?</h1>
 
@@ -63,16 +63,6 @@
                     <input id="digitalchannels-fax" name="nondigitalchannels" type="checkbox"
                            value="fax">
                     Fax
-                </label>
-                <label class="block-label" for="digitalchannels-facebook">
-                    <input id="digitalchannels-facebook" name="nondigitalchannels" type="checkbox"
-                           value="facebook">
-                    Facebook
-                </label>
-                <label class="block-label" for="digitalchannels-twitter">
-                    <input id="digitalchannels-twitter" name="nondigitalchannels" type="checkbox"
-                           value="twitter">
-                    Twitter
                 </label>
             </fieldset>
             <div class="form-group">
