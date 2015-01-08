@@ -1,6 +1,7 @@
-{% extends "layout.html" %}
+{% extends "cookie_message.html" %}
 
 {% block content %}
+<main role="main" id="content">
     <article class="text">
         <div class="question-number"><a class="link-back" href="/question1"><span class="fa fa-caret-left"></span>Back</a> Question 2 of 5</div>
         <form action="/question3">
@@ -21,4 +22,5 @@
             </nav>
         </form>
     </article>
+</main>
 {% endblock %}

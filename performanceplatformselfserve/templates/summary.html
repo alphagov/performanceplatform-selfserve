@@ -1,6 +1,7 @@
-{% extends "layout.html" %}
+{% extends "cookie_message.html" %}
 
 {% block content %}
+<main role="main" id="content">
     <article>
         <form class="js-form" action="/confirmation">
         <div class="question-number"><a class="link-back" href="/question5"><span class="fa fa-caret-left"></span>Back</a></div>
@@ -207,9 +208,10 @@
             </nav>
         </form>
     </article>
+</main>
 {% endblock %}
 
-{% block javascript %}
+{% block body_end %}
     <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="/static/vendor/assets/bower_components/jquery_autosize/jquery.autosize.min.js"></script>
     <script src="/static/js/summary.js"></script>
