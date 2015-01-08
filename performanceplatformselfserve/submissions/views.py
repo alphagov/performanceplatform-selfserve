@@ -24,7 +24,9 @@ def get_remote_JSON(path):
 def default(request):
     request.session.flush()
     t = loader.get_template('index.html')
-    html = t.render(Context({}))
+    html = t.render(Context({
+        "govuk_template_path": '/static/govuk_template/',
+    }))
     return HttpResponse(html)
 
 
@@ -33,6 +35,7 @@ def question1(request):
     dashboards = get_local_JSON('dashboards.json', 'title')
     organisations = get_local_JSON('organisations.json', 'name')
     context = RequestContext(request, {
+        "govuk_template_path": '/static/govuk_template/',
         "dashboards": dashboards,
         "organisations": organisations
     })
@@ -59,17 +62,19 @@ def question2(request):
     request.session['new_dashboard_description'] = request.GET.get('new_dashboard_description')
     request.session['new_dashboard_organisation'] = request.GET.get('new_dashboard_organisation')
     t = loader.get_template('q2.html')
-    context = RequestContext(request, {})
+    context = RequestContext(request, {
+        "govuk_template_path": '/static/govuk_template/',
+    })
     return HttpResponse(t.render(context))
-
 
 def question3(request):
     request.session['contact_name'] = request.GET.get('contact_name')
     request.session['contact_email'] = request.GET.get('contact_email')
     t = loader.get_template('q3.html')
-    context = RequestContext(request, {})
+    context = RequestContext(request, {
+        "govuk_template_path": '/static/govuk_template/',
+    })
     return HttpResponse(t.render(context))
-
 
 def question4(request):
     request.session['digitalchannels'] = [
@@ -79,10 +84,12 @@ def question4(request):
     t = loader.get_template('q4.html')
     context = RequestContext(
         request,
-        {"next_page": (request.GET.get('from') or '/question5')}
+        {
+            "next_page": (request.GET.get('from') or '/question5'),
+            "govuk_template_path": '/static/govuk_template/'
+        }
     )
     return HttpResponse(t.render(context))
-
 
 def question5(request):
     if 'channels_use_direct_api' in request.GET:
@@ -90,9 +97,10 @@ def question5(request):
     else:
         request.session['channels_use_direct_api'] = ''
     t = loader.get_template('q5.html')
-    context = RequestContext(request, {})
+    context = RequestContext(request, {
+        "govuk_template_path": '/static/govuk_template/',
+    })
     return HttpResponse(t.render(context))
-
 
 def summary(request):
     request.session['viewlist'] = [
@@ -108,6 +116,7 @@ def summary(request):
     context = RequestContext(
         request,
         {
+            "govuk_template_path": '/static/govuk_template/',
             "dashboard_name": request.session['dashboard_name'],
             "dashboard_description": request.session['dashboard_description'],
             "dashboard_organisation": request.session['dashboard_organisation'],
@@ -132,9 +141,10 @@ def summary(request):
 
 
 def confirmation(request):
-    model = get_local_JSON('model.json')
     t = loader.get_template('confirmation.html')
-    html = t.render(Context(model))
+    html = t.render(Context(
+        { "govuk_template_path": '/static/govuk_template/', }
+    ))
     return HttpResponse(html)
 
 

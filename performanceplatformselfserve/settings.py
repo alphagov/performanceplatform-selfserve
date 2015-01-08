@@ -38,6 +38,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request")
 
+TEMPLATE_LOADERS = (
+    'django_jinja.loaders.FileSystemLoader',
+    'django_jinja.loaders.AppLoader',
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -51,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'performanceplatformselfserve.submissions',
+    'django_jinja',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,3 +107,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'performanceplatformselfserve/static'),
 )
+
+DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.html'
