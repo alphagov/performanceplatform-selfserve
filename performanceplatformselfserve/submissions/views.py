@@ -122,7 +122,10 @@ def summary(request):
             "viewlist": request.session['viewlist'],
             "view": request.session['view'],
             "goallist": request.session['goallist'],
-            "goal": request.session['goal']
+            "nogoals": len(request.session['goallist']) == 0,
+            "goal": request.session['goal'],
+            "analytics": request.session['analytics'],
+            "analytics_other_name": request.session['analytics_other_name']
         }
     )
     return HttpResponse(t.render(context))
