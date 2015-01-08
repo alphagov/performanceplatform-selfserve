@@ -1,5 +1,40 @@
 {% extends "govuk_template.html" %}
 
+{% block header_class %}with-proposition{% endblock %}
+
+{% block proposition_header %}
+<div class="header-proposition">
+    <div class="content">
+        <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+        <nav id="proposition-menu">
+            <a href="https://www.gov.uk/performance" id="proposition-name">
+                Performance <span class="beta-badge">beta</span>
+            </a>
+            <ul id="proposition-links">
+                <li><a href="https://www.gov.uk/performance/services">
+                    Transactions
+                </a></li>
+                <li><a href="https://www.gov.uk/performance/web-traffic">
+                    Web traffic
+                </a></li>
+                <li><a class="active">
+                    Get a dashboard
+                </a></li>
+                <li><a href="https://www.gov.uk/performance/about">
+                    About
+                </a></li>
+                <li><a href="https://www.gov.uk/performance/prototypes">
+                    Prototypes
+                </a></li>
+                <li><a href="https://gdsdata.blog.gov.uk/">
+                    Blog
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
 {% block cookie_message %}
     <p>GOV.UK uses cookies to make the site simpler. <a href="/help/cookies">Find out more about cookies</a></p>
 {% endblock %}
