@@ -1,31 +1,47 @@
 # Performance Platform self-serve prototype
 
+[http://selfserve.herokuapp.com/](http://selfserve.herokuapp.com/)
+
 ## Setup
 
-npm install 
+`npm install`
 
-pip install -r requirements.txt
+`npm install -g gulp`
+
+`pip install -r requirements.txt`
+
+Alternatively, you can install into a virtualenv. Virtualenv provides a way to keep different project environments isolated.
+
+To get started, run:
+
+`sudo pip install virtualenv`
+
+`virtualenv venv`
+
+`. venv/bin/activate`
+
+`pip install -r requirements.txt`
 
 ## SASS compilation
 
-From /performanceplatformselfserve/static, run 'gulp watch'. It will recompile the SASS every time a file changes.
+`gulp watch`
+
+It will recompile the SASS every time a file changes.
 
 ## Running
 
-python manage.py runserver
+`python manage.py runserver`
 
-or 
+or
 
-foreman start
+`foreman start`
 
-The app will run at [http://localhost:5000](http://localhost:5000)
+The app will run at [http://localhost:8000](http://localhost:8000)
 
 ## Heroku
 
-heroku git:remote -a selfserve
- 
-heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-python
+`heroku git:remote -a selfserve`
 
-git push heroku master
+`heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-python`
 
-Url is [http://selfserve.herokuapp.com/](http://selfserve.herokuapp.com/)
+`git push heroku master`

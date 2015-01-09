@@ -1,10 +1,14 @@
-{% extends "layout.html" %}
+{% extends "performanceplatform-selfserve.html" %}
+
+{% block page_title %}Application complete - GOV.UK Performance{% endblock %}
 
 {% block head %}
+    <link href="/static/stylesheets/application.css" rel="stylesheet"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
+<main role="main" id="content">
     <article class="text">
     <div class="question-number"><a class="link-back" href="/summary"><span class="fa fa-caret-left"></span>Back</a></div>
         <h1 class="heading-medium heading-confirmation">Application complete</h1>
@@ -23,4 +27,5 @@
 
         <p><a href="#">Give feedback</a> (takes 30 seconds)</p>
     </article>
+</main>
 {% endblock %}

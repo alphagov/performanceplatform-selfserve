@@ -58,9 +58,19 @@
                value="email" disabled {% if "email" in nondigitalchannels %}checked {% endif %}>
         Email
     </label>
-    <label class="{% if "fax" in nondigitalchannels %}is-selected {% endif %} block-label" for="digitalchannels-fax">
+    <label class="{% if "fax" in nondigitalchannels %}is-selected {% endif %} block-label" for="nondigitalchannels-fax">
         <input class="js-selectable" id="digitalchannels-fax" name="nondigitalchannels" type="checkbox"
                value="fax" disabled {% if "fax" in nondigitalchannels %}checked {% endif %}>
         Fax
+    </label>
+    <label class="{% if "facebook" in nondigitalchannels %}is-selected {% endif %} block-label" for="nondigitalchannels-facebook">
+        <input class="js-selectable" id="nondigitalchannels-facebook" name="nondigitalchannels" type="checkbox"
+               value="facebook" disabled {% if "facebook" in nondigitalchannels %}checked {% endif %}>
+        Facebook
+    </label>
+    <label class="{% if "twitter" in nondigitalchannels %}is-selected {% endif %} block-label" for="nondigitalchannels-twitter">
+        <input class="js-selectable" id="nondigitalchannels-twitter" name="nondigitalchannels" type="checkbox"
+               value="twitter" disabled {% if "twitter" in nondigitalchannels %}checked {% endif %}>
+        Twitter
     </label>
 </fieldset>

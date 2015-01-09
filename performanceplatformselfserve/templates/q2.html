@@ -1,24 +1,31 @@
-{% extends "layout.html" %}
+{% extends "performanceplatform-selfserve.html" %}
+
+{% block page_title %}Your details - GOV.UK Performance{% endblock %}
+
+{% block head %}
+<link href="/static/stylesheets/application.css" rel="stylesheet"/>
+{% endblock %}
 
 {% block content %}
+<main role="main" id="content">
     <article class="text">
         <div class="question-number"><a class="link-back" href="/question1"><span class="fa fa-caret-left"></span>Back</a> Question 2 of 5</div>
         <form action="/question3">
-            <h1 class="heading-medium">Your details</h1>
+            <h1 class="midi">Your details</h1>
+      <p class="form-group">
 
-            <p class="form-group">
+        <label class="form-label" for="name">Full name</label>
+        <input name="contact_name" id="name" type="text" class="form-control" value="" required></p>
 
-                <label class="form-label" for="name">Full name</label>
-                <input name="contact_name" id="name" type="text" class="form-control" value="" required></p>
+        <p class="form-group">
 
-            <p class="form-group">
-
-                <label class="form-label" for="email">Your email address</label>
-                <input class="form-control" name="contact_email" id="email" type="email" value="" required>
-            </p>
-            <nav>
-                <button class="button">Continue</button>
-            </nav>
-        </form>
+          <label class="form-label" for="email">Your email address</label>
+          <input class="form-control" name="contact_email" id="email" type="email" value="" required>
+        </p>
+        <nav>
+          <button class="button">Continue</button>
+        </nav>
+      </form>
     </article>
-{% endblock %}
+  </main>
+  {% endblock %}

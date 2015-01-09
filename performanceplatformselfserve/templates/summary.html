@@ -1,216 +1,240 @@
-{% extends "layout.html" %}
+{% extends "performanceplatform-selfserve.html" %}
 
-{% block content %}
-    <article>
-        <form class="js-form" action="/confirmation">
-        <div class="question-number"><a class="link-back" href="/question5"><span class="fa fa-caret-left"></span>Back</a></div>
-            <h1 class="heading-medium">Check your dashboard before you send it for review</h1>
+{% block page_title %}Check your dashboard - GOV.UK Performance{% endblock %}
 
-            <div class="form-group">
-                <table class="table-summary table-summary--edit">
-                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
-                    <tr>
-                        <th scope="row"><label for="dashboard">Dashboard</label></th>
-                        <td>
-                            <input class="form-control form-control-full-width"
-                                   name="dashboard" id="dashboard" type="text" disabled
-                                   value="{% firstof new_dashboard_name dashboard_name %}"/>
-                        </td>
-                        <td>
-                            <div class="buttons">
-                                <div class="buttons__inner">
-                                    <button class="js-change button table-summary__change" type="button">
-                                        Change
-                                    </button>
-                                    <button class="js-cancel hidden button table-summary__change" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><label for="dashboard-description">Description</label></th>
-                        <td><textarea
-                                class="form-control form-control-full-width"
-                                name="dashboard-description"
-                                id="dashboard-description"
-                                disabled>{% firstof new_dashboard_description dashboard_description %}</textarea>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><label for="dashboard-organisation">Organisation</label></th>
-                        <td><input
-                                class="js-field-organisation form-control form-control-full-width"
-                                name="dashboard-organisation"
-                                id="dashboard-organisation"
-                                type="text" disabled
-                                value="{% firstof new_dashboard_organisation dashboard_organisation %}"/>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
-                    <tr>
-                        <th scope="row"><label for="name">Name</label></th>
-                        <td><input name="contact[name]" id="name" type="text"
-                                   class="form-control form-control-full-width"
-                                   value="{{ contact_name }}"
-                                   disabled>
-                        </td>
-                        <td>
-                            <div class="buttons">
-                                <div class="buttons__inner">
-                                    <button class="js-change button table-summary__change" data-target="js-field-name"
-                                            type="button">
-                                        Change
-                                    </button>
-                                    <button class="js-cancel hidden button table-summary__change" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><label for="email">Email</label></th>
-                        <td><input name="contact[email]" id="email" type="email"
-                                   class="form-control form-control-full-width"
-                                   value="{{ contact_email }}"
-                                   disabled>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tr class="js-edit-group is-not-editing">
-                        <th scope="row">Channels</th>
-                        <td>
-                            {% include "partial_channels.html" %}
-                        </td>
-                        <td>
-                            <div class="buttons">
-                                <div class="buttons__inner">
-                                    <button class="js-change button table-summary__change"
-                                            data-target="js-field-channels"
-                                            type="button">
-                                        Change
-                                    </button>
-                                    <button class="js-cancel hidden button table-summary__change" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="js-edit-group is-not-editing">
-                        <th scope="row">Transactions</th>
-                        <td>
-                            {% if channels_use_direct_api == 'yes' %}
-                                <p>We will email you to set up an API connection.</p>
-                            {% else %}
-                                <p>Uploaded file:</p>
-                                <div>example-data-import.xls</div>
-                            {% endif %}
-                        </td>
-                        <td>
-                            <div class="buttons">
-                                <div class="buttons__inner">
-                                    <a href="/question4?from=/summary" class="button table-summary__change" type="button">
-                                        Change
-                                    </a>
-                                    <button class="js-cancel hidden button table-summary__change" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tbody class="js-edit-group is-not-editing table-summary__grouped">
-
-                    <tr>
-                        <th scope="row">Analytics</th>
-                        <td>
-                        {% if analytics %}
-                            {{ analytics }} {% if analytics_other_name %} - {{ analytics_other_name }} {% endif %}
-                        {%  else %}
-                            Google Analytics connected
-                        {% endif %}
-                        </td>
-                        <td>
-                            <div class="buttons">
-                                <div class="buttons__inner">
-                                    <a href="/question5" class="button table-summary__change" type="button">
-                                        Change
-                                    </a>
-                                    <button class="js-cancel hidden button table-summary__change" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    {% if analytics == None %}
-                    <tr>
-                        <th scope="row">View ID</th>
-                        <td>
-                            <div class="js-views">
-                                <fieldset>
-                                    <legend class="table-summary__legend form-label-bold">View</legend>
-                                    {% for viewitem in viewlist %}
-                                        {% include "partial_views.html" with name=viewitem selected=view id=forloop.counter %}
-                                    {% endfor %}
-                                </fieldset>
-                            </div>
-                        </td>
-                        <td>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Goal ID</th>
-                        <td>
-                            <div class="js-goals">
-                                <fieldset>
-                                    <legend class="table-summary__legend form-label-bold">Goal</legend>
-                                    {% for goalitem in goallist %}
-                                        {% include "partial_goal.html" with name=goalitem.name selected=goal id=forloop.counter %}
-                                    {% endfor %}
-                                </fieldset>
-                            </div>
-                        {% if nogoals %}
-                        <p>You need to <a href="https://support.google.com/analytics/answer/1032415">set up a goal</a> to track completion.</p>
-                        {% endif %}
-                        </td>
-                        <td>
-
-                        </td>
-                    </tr>
-                    {% endif %}
-                    </tbody>
-                </table>
-            </div>
-            <div class="form-group">
-                <label for="anything-else">Anything else?</label>
-                    <textarea class="form-control form-control-full-width"
-                              id="anything-else"
-                              name="notes" rows="3"></textarea>
-            </div>
-
-            <nav>
-                <a class="button button-external" href="https://www.gov.uk/performance/standard-dashboard"
-                   target="_blank">Preview dashboard</a>
-                <button class="button">Send for review</button>
-            </nav>
-        </form>
-    </article>
+{% block head %}
+<link href="/static/stylesheets/application.css" rel="stylesheet"/>
 {% endblock %}
 
-{% block javascript %}
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="/static/vendor/assets/bower_components/jquery_autosize/jquery.autosize.min.js"></script>
-    <script src="/static/js/summary.js"></script>
+{% block content %}
+<main role="main" id="content">
+  <article>
+    <form class="js-form" action="/confirmation">
+      <div class="question-number"><a class="link-back" href="/question5"><span class="fa fa-caret-left"></span>Back</a></div>
+      <h1 class="midi">Check your dashboard before you send it for review</h1>
+
+      <div class="form-group">
+        <table class="table-summary table-summary--edit">
+          <tbody class="js-edit-group is-not-editing table-summary__grouped">
+            <tr>
+              <th scope="row"><label for="dashboard">Dashboard</label></th>
+              <td>
+                <input class="form-control form-control-full-width"
+                name="dashboard" id="dashboard" type="text" disabled
+                value="{% if new_dashboard_name %}{{ new_dashboard_name }}{% else %}{{ dashboard_name }}{% endif %}"/>
+              </td>
+              <td>
+                <div class="buttons">
+                  <div class="buttons__inner">
+                    <button class="js-change button table-summary__change" type="button">
+                      Change
+                    </button>
+                    <button class="js-cancel hidden button table-summary__change" type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="dashboard-description">Description</label></th>
+              <td>
+                <textarea
+                  class="form-control form-control-full-width"
+                  name="dashboard-description"
+                  id="dashboard-description"
+                  disabled>{% if new_dashboard_description %}{{ new_dashboard_description }}{% else %}{{ dashboard_description }}{% endif %}
+                </textarea>
+              </td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="dashboard-organisation">Organisation</label></th>
+              <td>
+                <input
+                  class="js-field-organisation form-control form-control-full-width"
+                  name="dashboard-organisation"
+                  id="dashboard-organisation"
+                  type="text" disabled
+                  value="{% if new_dashboard_organisation %}{{ new_dashboard_organisation }}{% else %}{{ dashboard_organisation }}{% endif %}"
+                />
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+          <tbody class="js-edit-group is-not-editing table-summary__grouped">
+            <tr>
+              <th scope="row"><label for="name">Name</label></th>
+              <td><input name="contact[name]" id="name" type="text"
+               class="form-control form-control-full-width"
+               value="{{ contact_name }}"
+               disabled>
+             </td>
+             <td>
+              <div class="buttons">
+                <div class="buttons__inner">
+                  <button class="js-change button table-summary__change" data-target="js-field-name"
+                  type="button">
+                  Change
+                </button>
+                <button class="js-cancel hidden button table-summary__change" type="button">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="email">Email</label></th>
+          <td><input name="contact[email]" id="email" type="email"
+           class="form-control form-control-full-width"
+           value="{{ contact_email }}"
+           disabled>
+         </td>
+         <td>
+         </td>
+       </tr>
+     </tbody>
+     <tr class="js-edit-group is-not-editing">
+      <th scope="row">Channels</th>
+      <td>
+        {% include "partial_channels.html" %}
+      </td>
+      <td>
+        <div class="buttons">
+          <div class="buttons__inner">
+            <button class="js-change button table-summary__change"
+            data-target="js-field-channels"
+            type="button">
+            Change
+          </button>
+          <button class="js-cancel hidden button table-summary__change" type="button">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="js-edit-group is-not-editing">
+    <th scope="row">Transactions</th>
+    <td>
+      {% if channels_use_direct_api == 'yes' %}
+      <p>We will email you to set up an API connection.</p>
+      {% else %}
+      <p>Uploaded file:</p>
+      <div>example-data-import.xls</div>
+      {% endif %}
+    </td>
+    <td>
+      <div class="buttons">
+        <div class="buttons__inner">
+          <a href="/question4?from=/summary" class="button table-summary__change" type="button">
+            Change
+          </a>
+          <button class="js-cancel hidden button table-summary__change" type="button">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tbody class="js-edit-group is-not-editing table-summary__grouped">
+
+    <tr>
+      <th scope="row">Analytics</th>
+      <td>
+        {% if analytics %}
+        {{ analytics }} {% if analytics_other_name %} - {{ analytics_other_name }} {% endif %}
+        {%  else %}
+        Google Analytics connected
+        {% endif %}
+      </td>
+      <td>
+        <div class="buttons">
+          <div class="buttons__inner">
+            <a href="/question5" class="button table-summary__change" type="button">
+              Change
+            </a>
+            <button class="js-cancel hidden button table-summary__change" type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% if analytics == None %}
+    <tr>
+      <th scope="row">View ID</th>
+      <td>
+        <div class="js-views">
+          <fieldset>
+            <legend class="table-summary__legend form-label-bold">View</legend>
+            {% for viewitem in viewlist %}
+
+            <label class="{% if view == viewitem %}is-selected {% endif %} js-selectable block-label" for="view-{{ loop.counter }}">
+              <input class="js-view" id="view-{{ loop.counter }}" name="view" type="radio" value="{{ viewitem }}" required
+              {% if view == viewitem %}checked {% endif %}>
+              {{ viewitem }}
+            </label>
+            <input type="hidden" name="viewlist" value="{{ viewitem }}" />
+
+            {% endfor %}
+          </fieldset>
+        </div>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Goal ID</th>
+      <td>
+        <div class="js-goals">
+          <fieldset>
+            <legend class="table-summary__legend form-label-bold">Goal</legend>
+            {% for goalitem in goallist %}
+            <label class="{% if goal == goalitem.name %}is-selected {% endif %} js-selectable block-label" for="goal-{{ loop.counter }}">
+              <input class="js-goal" id="goal-{{ loop.counter }}" name="goal" type="radio" value="{{ goalitem.name }}" required
+              {% if goal == goalitem.name %}checked {% endif %}>
+              {{ goalitem.name }}
+            </label>
+            <input type="hidden" name="goallist" value="{{ name }}"/>
+            {% endfor %}
+          </fieldset>
+        </div>
+        {% if nogoals %}
+        <p>You need to <a href="https://support.google.com/analytics/answer/1032415">set up a goal</a> to track completion.</p>
+        {% endif %}
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+</div>
+<div class="form-group">
+  <label for="anything-else">Anything else?</label>
+  <textarea class="form-control form-control-full-width"
+  id="anything-else"
+  name="notes" rows="3"></textarea>
+</div>
+
+<nav>
+  <a class="button button-external" href="https://www.gov.uk/performance/standard-dashboard"
+  target="_blank">Preview dashboard</a>
+  <button class="button">Send for review</button>
+</nav>
+</form>
+</article>
+</main>
+{% endblock %}
+
+{% block body_end %}
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="/static/vendor/assets/bower_components/jquery_autosize/jquery.autosize.min.js"></script>
+<script src="/static/js/summary.js"></script>
 {% endblock %}

@@ -1,15 +1,19 @@
-{% extends "layout.html" %}
+{% extends "performanceplatform-selfserve.html" %}
+
+{% block page_title %}What dashboard do you want to add data to? - GOV.UK Performance{% endblock %}
 
 {% block head %}
-    <link href="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.css" rel="stylesheet"/>
+<link href="/static/stylesheets/application.css" rel="stylesheet"/>
+<link href="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.css" rel="stylesheet"/>
 {% endblock %}
 
 {% block content %}
+<main role="main" id="content">
     <article class="text">
         <form action="/question2/">
             {% csrf_token %}
             <div class="question-number"><a class="link-back" href="/"><span class="fa fa-caret-left"></span>Back</a> Question 1 of 5</div>
-            <h1 class="heading-medium"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
+            <h1 class="midi"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
             <div class="form-group">
                 <select data-placeholder="Find a dashboard" class="js-dashboard" id="dashboard" required>
                     {% for dashboard in dashboards %}
@@ -25,45 +29,46 @@
                     <div class="panel-indent">
                         <p class="form-group">
 
-                            <label class="form-label" for="dashboard-name">Dashboard name</label>
-                            <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
-                        </p>
-
-                        <p class="form-group">
-
-                            <label class="form-label" for="description">Description</label>
-                            <textarea class="form-control form-control-full-width" rows="3"
-                                      name="new_dashboard_description" id="description"></textarea>
-                        </p>
-
-                        <p class="form-group">
-                            <label for="organisation">Organisation</label>
-                            <br/>
-                            <select id="organisation" name="new_dashboard_organisation">
-                                {% for organisation in organisations %}
-                                    <option>{{ organisation.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </p>
-                    </div>
-                </details>
+              <label class="form-label" for="dashboard-name">Dashboard name</label>
+              <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
             </p>
-            <nav>
-                <button class="button">Continue</button>
-            </nav>
-        </form>
-    </article>
+
+            <p class="form-group">
+
+              <label class="form-label" for="description">Description</label>
+              <textarea class="form-control form-control-full-width" rows="3"
+              name="new_dashboard_description" id="description"></textarea>
+            </p>
+
+            <p class="form-group">
+              <label for="organisation">Organisation</label>
+              <br/>
+              <select id="organisation" name="new_dashboard_organisation">
+                {% for organisation in organisations %}
+                <option>{{ organisation.name }}</option>
+                {% endfor %}
+              </select>
+            </p>
+          </div>
+        </details>
+      </p>
+      <nav>
+        <button class="button">Continue</button>
+      </nav>
+    </form>
+  </article>
+</main>
 {% endblock %}
 
-{% block javascript %}
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.jquery.js"></script>
-    <script>
-        $('.js-dashboard').chosen().change(function(evt, obj) {
-            $.get('/dashboard?slug=' + obj.selected,
-            function(data) {
-                $('.js-dashboard-details').html(data);
-            });
-        });
-    </script>
+{% block body_end %}
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="/static/vendor/assets/bower_components/chosen_v1.3.0/chosen.jquery.js"></script>
+<script>
+  $('.js-dashboard').chosen().change(function(evt, obj) {
+    $.get('/dashboard?slug=' + obj.selected,
+      function(data) {
+        $('.js-dashboard-details').html(data);
+      });
+  });
+</script>
 {% endblock %}
