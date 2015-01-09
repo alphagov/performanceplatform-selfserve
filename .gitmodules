@@ -6,4 +6,4 @@
 	url = https://github.com/alphagov/govuk_elements.git
 [submodule "performanceplatformselfserve/static/selectToAutocomplete"]
 	path = performanceplatformselfserve/static/selectToAutocomplete
-	url = git@github.com:JamieAppleseed/selectToAutocomplete.git
+	url = https://github.com/JamieAppleseed/selectToAutocomplete.git
