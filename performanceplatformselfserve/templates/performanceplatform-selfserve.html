@@ -38,3 +38,9 @@
 {% block cookie_message %}
     <p>GOV.UK uses cookies to make the site simpler. <a href="/help/cookies">Find out more about cookies</a></p>
 {% endblock %}
+
+{% block content %}
+<main role="main" id="content">
+    {% block selfserve_content %}{% endblock %}
+</main>
+{% endblock %}

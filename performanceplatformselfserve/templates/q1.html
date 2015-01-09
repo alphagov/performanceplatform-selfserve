@@ -7,8 +7,7 @@
   <link src="/static/selectToAutocomplete/jquery-ui.css"/>
 {% endblock %}
 
-{% block content %}
-<main role="main" id="content">
+{% block selfserve_content %}
     <article class="text">
         <form action="/question2/">
             {% csrf_token %}
@@ -59,7 +58,6 @@
       </nav>
     </form>
   </article>
-</main>
 {% endblock %}
 
 {% block body_end %}
