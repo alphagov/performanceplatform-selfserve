@@ -14,7 +14,7 @@
             <div class="question-number"><a class="link-back" href="/"><span class="fa fa-caret-left"></span>Back</a> Question 1 of 5</div>
             <h1 class="midi"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
             <div class="form-group">
-                <select data-placeholder="Find a dashboard" class="dashboard-select" id="dashboard" required>
+                <select class="dashboard-select" id="dashboard" required>
                         <option value="" selected="selected"></option>
                     {% for dashboard in dashboards %}
                         <option value="{{ dashboard.slug }}">{{ dashboard.title }}</option>
