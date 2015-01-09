@@ -21,11 +21,7 @@
               <td>
                 <input class="form-control form-control-full-width"
                 name="dashboard" id="dashboard" type="text" disabled
-                value="{% if new_dashboard_name %}
-                    {{ new_dashboard_name }}
-                  {% else %}
-                    {{ dashboard_name }}
-                  {% endif %}"/>
+                value="{% if new_dashboard_name %}{{ new_dashboard_name }}{% else %}{{ dashboard_name }}{% endif %}"/>
               </td>
               <td>
                 <div class="buttons">
@@ -42,31 +38,27 @@
             </tr>
             <tr>
               <th scope="row"><label for="dashboard-description">Description</label></th>
-              <td><textarea
-                class="form-control form-control-full-width"
-                name="dashboard-description"
-                id="dashboard-description"
-                disabled>{% if new_dashboard_description %}
-                    {{ new_dashboard_description }}
-                  {% else %}
-                    {{ dashboard_description }}
-                  {% endif %}</textarea>
+              <td>
+                <textarea
+                  class="form-control form-control-full-width"
+                  name="dashboard-description"
+                  id="dashboard-description"
+                  disabled>{% if new_dashboard_description %}{{ new_dashboard_description }}{% else %}{{ dashboard_description }}{% endif %}
+                </textarea>
               </td>
               <td>
               </td>
             </tr>
             <tr>
               <th scope="row"><label for="dashboard-organisation">Organisation</label></th>
-              <td><input
-                class="js-field-organisation form-control form-control-full-width"
-                name="dashboard-organisation"
-                id="dashboard-organisation"
-                type="text" disabled
-                value="{% if new_dashboard_organisation %}
-                    {{ new_dashboard_organisation }}
-                  {% else %}
-                    {{ dashboard_organisation }}
-                  {% endif %}"/>
+              <td>
+                <input
+                  class="js-field-organisation form-control form-control-full-width"
+                  name="dashboard-organisation"
+                  id="dashboard-organisation"
+                  type="text" disabled
+                  value="{% if new_dashboard_organisation %}{{ new_dashboard_organisation }}{% else %}{{ dashboard_organisation }}{% endif %}"
+                />
               </td>
               <td>
               </td>
