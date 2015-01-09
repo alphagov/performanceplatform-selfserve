@@ -4,3 +4,6 @@
 [submodule "performanceplatformselfserve/static/govuk_elements"]
 	path = performanceplatformselfserve/static/govuk_elements
 	url = https://github.com/alphagov/govuk_elements.git
+[submodule "performanceplatformselfserve/static/selectToAutocomplete"]
+	path = performanceplatformselfserve/static/selectToAutocomplete
+	url = https://github.com/JamieAppleseed/selectToAutocomplete.git
