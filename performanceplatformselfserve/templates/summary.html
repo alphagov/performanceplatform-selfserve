@@ -6,8 +6,7 @@
 <link href="/static/stylesheets/application.css" rel="stylesheet"/>
 {% endblock %}
 
-{% block content %}
-<main role="main" id="content">
+{% block selfserve_content %}
   <article>
     <form class="js-form" action="/confirmation">
       <div class="question-number"><a class="link-back" href="/question5"><span class="fa fa-caret-left"></span>Back</a></div>
@@ -230,7 +229,6 @@
 </nav>
 </form>
 </article>
-</main>
 {% endblock %}
 
 {% block body_end %}
