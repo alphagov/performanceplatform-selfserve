@@ -8,11 +8,15 @@
 
 `npm install -g gulp`
 
-`pip install -r requirements.txt`
+You'll also have to load in the code for the included submodules. These are managed in separately by git.
 
-Alternatively, you can install into a virtualenv. Virtualenv provides a way to keep different project environments isolated.
+`git submodule init`
 
-To get started, run:
+`git submodule update`
+
+### Install python dependencies in a virtualenv
+
+Virtualenv provides a way to keep different project environments isolated.
 
 `sudo pip install virtualenv`
 
