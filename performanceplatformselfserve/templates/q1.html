@@ -33,17 +33,18 @@
     </div>
 
     <p>
-      <details>
+      <details class="cant-find-dashboard">
         <summary><span class="summary">I can't find my dashboard</span></summary>
         <div class="panel-indent">
-          <p class="form-group">
 
+          <p>We'll get our copy editors to check over your title and description.</p>
+
+          <p class="form-group">
             <label class="form-label" for="dashboard-name">Dashboard name</label>
             <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
           </p>
 
           <p class="form-group">
-
             <label class="form-label" for="description">Description</label>
             <textarea class="form-control form-control-full-width" rows="3"
             name="new_dashboard_description" id="description"></textarea>
@@ -80,16 +81,25 @@
     $(function(){
       $('select').selectToAutocomplete();
       $('select').change(function (event) {
-        var selectedDaashboard = $(event.target).val();
 
-        $.get('/dashboard?slug=' + selectedDaashboard, function(data) {
-          $('.dashboard-select-details').html(data);
-        });
+        var selectedDashboard = $(event.target).val();
+
+        if(selectedDashboard === '') {
+          $('.dashboard-select-details').html('');
+        } else {
+          $.get('/dashboard?slug=' + selectedDashboard, function(data) {
+            $('.dashboard-select-details').html(data);
+          });
+        }
       });
-      // $('form').submit(function(){
-      //   alert( $(this).serialize() );
-      //   return false;
-      // });
+      $('.cant-find-dashboard').click(function () {
+        if ($(this).hasClass('open')) {
+          $(this).removeClass('open');
+        } else {
+          $(this).addClass('open');
+          $('.dashboard-select').val('').trigger('change');
+        }
+      });
     });
   })(jQuery);
 </script>
