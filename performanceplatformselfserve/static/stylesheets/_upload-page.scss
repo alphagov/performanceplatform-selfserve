@@ -1,4 +1,46 @@
-.dropzone {
-  padding: 40px;
-  border: 5px dashed $light-blue-25;
+
+.upload-step {
+
+  .step-1-img, .step-2-img {
+    display: block;
+    border: 1px solid $border-colour;
+    background: no-repeat center;
+    height: 180px;
+  }
+
+  .step-1-img {
+    background-image: url(/static/images/upload-step-1.jpg);
+  }
+  .step-2-img {
+    background-image: url(/static/images/upload-step-2.jpg);
+  }
+
+  .dropzone {
+    border: 3px dashed $border-colour;
+    display: table;
+    width: 100%;
+    height: 176px;
+
+    div {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 15px 15px 20px;
+
+      p {
+        @include bold-19;
+        color: $secondary-text-colour;
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover {
+      border-color: $light-blue;
+      cursor: pointer;
+
+      div p {
+        color: $link-colour;
+      }
+    }
+  }
+
 }

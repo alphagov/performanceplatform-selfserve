@@ -8,46 +8,82 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-        <div class="question-number"><a class="link-back" href="/question3"><span class="fa fa-caret-left"></span>Back</a> Question 4 of 5</div>
-        <h1 class="midi">Transaction volumes by channel</h1>
 
-    <p>
-      We need to know the number of times people complete your transaction and how they do so.
-    </p>
+  <p class="question-number">
+    <a class="link-back" href="/question3"><span class="fa fa-caret-left"></span>Back</a> Question 4 of 5
+  </p>
 
-    <p>We use this information to calculate your digital take-up.</p>
+  <div class="grid-row">
+    <div class="text">
 
-    <div class="form-group">
-      <form action="/upload" id="upload" class="dropzone">
-        <div class="fallback">
-          <input name="upload" type="file" multiple/>
-        </div>
-      </form>
+      <h1 class="midi">Transaction volumes by channel</h1>
+
+      <p>We need to know the number of times people complete your transaction and how they do so.</p>
+
+      <p>We use this information to calculate your digital take-up.</p>
+
+      <h2>Upload data using a spreadsheet</h2>
+
+      <p>You'll need to commit to keeping this information up to date on a weekly or monthly basis.</p>
     </div>
+  </div>
+
+  <ol class="upload-steps grid-row">
+    <li class="upload-step column-third">
+      <h3>Step 1</h3>
+      <p>Save the example spreadsheet</p>
+      <!-- <div class="campaign-image">
+        <span id="banner" role="presentation"></span>
+      </div> -->
+      <div class="step-1-img">&nbsp;</div>
+    </li>
+
+    <li class="upload-step column-third">
+      <h3>Step 2</h3>
+      <p>Add data to the spreadsheet</p>
+      <div class="step-2-img">&nbsp;</div>
+    </li>
+
+    <li class="upload-step column-third">
+      <h3>Step 3</h3>
+      <p>Upload the completed spreadsheet</p>
+
+      <div class="form-group">
+        <form action="/upload" id="upload" class="dropzone">
+          <div class="fallback">
+            <input name="upload" type="file" multiple/>
+          </div>
+        </form>
+      </div>
+    </li>
+  </ol>
+
+  <div class="grid-row">
     <form action="{{ next_page }}">
+
       <input type="hidden" name="channels_use_direct_api" value="yes" />
+
       <div class="form-group">
         <details>
           <summary><span class="summary">I want to add a direct feed to my transaction's API</span></summary>
-          <div class="panel-indent">
-            <p>
-              We will email you to set up an API connection.
-            </p>
 
-            <p>
-              <button class="button">Continue without uploading</button>
-            </p>
+          <div class="panel-indent">
+            <p>We will email you to set up an API connection.</p>
+            <p><button class="button">Continue without uploading</button></p>
           </div>
+
         </details>
       </div>
+
     </form>
+
     <form action="{{ next_page }}">
       <nav>
         <button class="button">Continue</button>
       </nav>
     </form>
-  </article>
+  </div>
+
 {% endblock %}
 
 {% block body_end %}
@@ -61,7 +97,7 @@
       });
     },
     autoProcessQueue: false,
-    dictDefaultMessage: 'Drag and drop example-data-import.xls here to upload, or click here to browse for it.',
+    dictDefaultMessage: '<p>Drag and drop to upload your completed spreadsheet, or click here</p>',
     previewTemplate: '<div><span class="fa fa-2x fa-check-square"></span><p>example-data-import.xls uploaded successfully</p></div>'
   };
 </script>
