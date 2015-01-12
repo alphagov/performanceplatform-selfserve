@@ -8,22 +8,27 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-    <div class="question-number"><a class="link-back" href="/summary"><span class="fa fa-caret-left"></span>Back</a></div>
-        <h1 class="heading-medium heading-confirmation">Application complete</h1>
 
-        <p><span class="fa fa-envelope-o"></span> We've sent a confirmation email to {{ contact_email }}.</p>
+<div class="grid-row">
+  <div class="text">
 
-        <h2 class="heading-medium">What happens next</h2>
+    <h1 class="midi heading-confirmation">Application complete</h1>
 
-        <p>We'll take a look at your application within 3 working days.</p>
+    <p><span class="fa fa-envelope-o"></span> We've sent a confirmation email to {{ contact_email }}.</p>
 
-        <p>If everything is OK, we'll make your data live. We'll email you to let you know.</p>
+    <h2>What happens next</h2>
 
-        <p>If we need anything more from you we'll let you know.</p>
+    <p>We'll take a look at your application within 3 working days.</p>
 
-        <h2 class="heading-medium">How did you feel about the service you received today?</h2>
+    <p>If everything is OK, we'll make your data live. We'll email you to let you know.</p>
 
-        <p><a href="#">Give feedback</a> (takes 30 seconds)</p>
-    </article>
+    <p>If we need anything more from you we'll let you know.</p>
+
+    <h2>How did you feel about the service you received today?</h2>
+
+    <p><a href="#">Give feedback</a> <span class="text-secondary">&ndash; takes 30 seconds</span></p>
+
+  </div>
+</div>
+
 {% endblock %}
