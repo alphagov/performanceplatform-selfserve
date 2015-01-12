@@ -129,6 +129,14 @@ p {
   @extend .text-secondary;
   @include core-16;
   margin-top: 1.5em;
+
+  .link-back {
+    color: $text-colour;
+    margin-right: 20px;
+    > .fa {
+      margin-right: 7px;
+    }
+  }
 }
 
 // Link styles
