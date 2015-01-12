@@ -7,23 +7,31 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-        <div class="question-number"><a class="link-back" href="/question1"><span class="fa fa-caret-left"></span>Back</a> Question 2 of 5</div>
-        <form action="/question3">
-            <h1 class="midi">Your details</h1>
-      <p class="form-group">
 
-        <label class="form-label" for="name">Full name</label>
-        <input name="contact_name" id="name" type="text" class="form-control" value="" required></p>
+<div class="question-number">
+  <a class="link-back" href="/question1"><span class="fa fa-caret-left"></span>Back</a> Question 2 of 5
+</div>
 
-        <p class="form-group">
+<div class="grid-row">
+  <form class="text" action="/question3">
 
-          <label class="form-label" for="email">Your email address</label>
-          <input class="form-control" name="contact_email" id="email" type="email" value="" required>
-        </p>
-        <nav>
-          <button class="button">Continue</button>
-        </nav>
-      </form>
-    </article>
+    <h1 class="midi">Your details</h1>
+
+    <p class="form-group">
+      <label class="form-label" for="name">Full name</label>
+      <input name="contact_name" id="name" type="text" class="form-control" value="" required>
+    </p>
+
+    <p class="form-group">
+      <label class="form-label" for="email">Your email address</label>
+      <input class="form-control" name="contact_email" id="email" type="email" value="" required>
+    </p>
+
+    <nav>
+      <button class="button">Continue</button>
+    </nav>
+
+    </form>
+</div>
+
 {% endblock %}

@@ -27,14 +27,32 @@
 // performanceplatform-selfserve imports
 @import "alpha-beta-badge";
 @import "ppselfserve-typography";
+@import "choose-dashboard";
 @import "upload-page";
 @import "summary-page";
 
-.question-number {
-  color: $secondary-text-colour;
-  margin-top: 1.5em;
+// overwrite elements/panels
+.panel-indent {
+  margin: $gutter-half 0 $gutter;
 }
 
+// overwrite elements/buttons
+.button-get-started {
+  background-image: url(/static/govuk_frontend_toolkit/images/icon-pointer.png);
+  padding: em(7) em(41) em(4) em(16);
+
+  @include device-pixel-ratio {
+    background-image: url(/static/govuk_frontend_toolkit/images/icon-pointer-2x.png);
+  }
+
+  @include ie(6) {
+    background-image: url(/static/govuk_frontend_toolkit/images//icon-pointer-2x.png);
+  }
+}
+
+.button {
+  margin: em(15) 0;
+}
 .button-external {
   @include button($link-colour);
 }
@@ -57,38 +75,4 @@
 .block-label .form-control {
   position: static;
   vertical-align: middle;
-}
-
-.link-back {
-  margin-right: 20px;
-  > .fa {
-    margin-right: 7px;
-  }
-}
-
-.ui-autocomplete {
-  padding: 0;
-  list-style: none;
-  background-color: #fff;
-  width: 218px;
-  border: 1px solid #B0BECA;
-  max-height: 350px;
-  overflow-x: hidden;
-}
-.ui-autocomplete .ui-menu-item {
-  border-top: 1px solid #B0BECA;
-  display: block;
-  padding: 4px 6px;
-  color: #353D44;
-  cursor: pointer;
-}
-.ui-autocomplete .ui-menu-item:first-child {
-  border-top: none;
-}
-.ui-autocomplete .ui-menu-item.ui-state-focus {
-  background-color: #D5E5F4;
-  color: #161A1C;
-}
-input.dashboard-select {
-  width: 75%;
 }
