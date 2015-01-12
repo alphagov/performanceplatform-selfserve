@@ -53,7 +53,6 @@
 .button {
   margin: em(15) 0;
 }
-
 .button-external {
   @include button($link-colour);
 }
@@ -76,11 +75,4 @@
 .block-label .form-control {
   position: static;
   vertical-align: middle;
-}
-
-.link-back {
-  margin-right: 20px;
-  > .fa {
-    margin-right: 7px;
-  }
 }

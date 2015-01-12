@@ -1,8 +1,30 @@
+
+// overwrite styles from elements/tables
+table th,
+table td {
+  padding: em(15) em(10) em(10) 0;
+}
+
+// custom styles
+
+table th,
+table td {
+  @include core-19;
+  vertical-align: top;
+
+  .form-label-bold {
+    display: none;
+  }
+}
+
 .table-summary {
   border-top: 1px solid $border-colour;
 }
 
 .table-summary .is-not-editing {
+  .form-group {
+    margin-bottom: 0;
+  }
 
   .form-control {
     border-color: transparent;
@@ -23,7 +45,10 @@
       }
     }
   }
+}
 
+.form-group.text {
+  @include grid-column( 2/3 );
 }
 
 .table-summary th {
@@ -39,13 +64,9 @@
   width: 6em;
   text-align: right;
 }
-.table-summary th,
-.table-summary td {
-  @include core-19;
-  vertical-align: top;
-}
 
 .table-summary textarea {
+  font-family: inherit;
   -webkit-appearance: none;
   resize: none;
 }
@@ -71,4 +92,8 @@
   position: absolute;
   top: 0;
   right: 0;
+
+  .button {
+    @include button($grey-2);
+  }
 }
