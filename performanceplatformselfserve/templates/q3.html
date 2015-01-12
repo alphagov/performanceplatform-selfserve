@@ -19,9 +19,7 @@
 
   <p>Select all the ways people can complete a transaction.</p>
 
-  <p class="panel-indent">Don't include contact methods where people can't actually complete the transaction. For
-      example, don't include 'telephone' if the operator will just tell you to go and fill in a
-      form.</p>
+  <p class="panel-indent">Only include contact methods where people can actually complete the transaction. For example, don't include 'telephone' if the operator will just tell you to go and fill in a form.</p>
 
   <fieldset class="form-group">
     <legend class="form-label-bold">Digital channels</legend>
@@ -74,7 +72,12 @@
     <details>
       <summary><span class="summary">Help with channels</span></summary>
       <div class="panel-indent">
-        TBC
+        <p>Remember, only include contact methods where people can actually complete the transaction.</p>
+
+        <p class="form-group">
+          <label class="form-label" for="dashboard-name">Other channels</label>
+          <input name="new_channel_name" id="channel-name" type="text" class="form-control" value="">
+        </p>
       </div>
     </details>
   </div>
