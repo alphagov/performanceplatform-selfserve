@@ -36,11 +36,20 @@ h1 {
     display: block;
     color: $secondary-text-colour;
   }
+}
 
+h1:first-of-type {
+  margin-top: em(15, 32);
+  margin-bottom: em(30, 32);
+
+  @include media(tablet) {
+    margin-top: em(50, 48);
+    margin-bottom: em(40, 48);
+  }
 }
 
 h1.midi {
-  @include bold-36();
+  @include bold-27();
 
   margin-top: em(25, 24);
   margin-bottom: em(10, 24);
@@ -49,24 +58,26 @@ h1.midi {
     margin-top: em(45, 36 );
     margin-bottom: em(20, 36);
   }
+}
 
-  span {
-    @include heading-24();
+h1.midi:first-of-type {
+  margin-top: em(15, 32);
+  margin-bottom: em(30, 32);
 
-    display: block;
-    color: $secondary-text-colour;
+  @include media(tablet) {
+    margin-top: em(50, 48);
+    margin-bottom: em(40, 48);
   }
-
 }
 
 h2 {
   @include bold-24();
 
-  margin-top: em(25, 20);
+  margin-top: em(15, 20);
   margin-bottom: em(10, 20);
 
   @include media(tablet) {
-    margin-top: em(45, 24);
+    margin-top: em(30, 24);
     margin-bottom: em(20, 24);
   }
 
@@ -75,23 +86,23 @@ h2 {
 h3 {
   @include bold-19();
 
-  margin-top: em(10, 16);
+  margin-top: em(5, 16);
   margin-bottom: em(5, 16);
 
   @include media(tablet) {
-    margin-top: em(20, 19);
+    margin-top: em(15, 19);
   }
 
 }
 
 // Text
 p {
-  margin-top: em(5, 16 );
-  margin-bottom: em(20, 16);
+  margin-top: 0; // em(5, 16);
+  margin-bottom: em(10, 16);
 
   @include media(tablet) {
-    margin-top: em(5);
-    margin-bottom: em(20);
+    margin-top: 0; // em(5);
+    margin-bottom: em(10);
   }
 
 }
@@ -104,11 +115,20 @@ p {
 // Set a max-width for text blocks
 // Less than 75 characters per line of text
 .text {
-  max-width: 30em;
+  @extend .column-two-thirds;
+  // max-width: 30em;
+
+  input { width: 100%; }
 }
 
 .text-secondary {
   color: $secondary-text-colour;
+}
+
+.question-number {
+  @extend .text-secondary;
+  @include core-16;
+  margin-top: 1.5em;
 }
 
 // Link styles

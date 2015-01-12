@@ -8,57 +8,65 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-        <form action="/summary">
-            <div class="question-number"><a class="link-back" href="/question4"><span class="fa fa-caret-left"></span>Back</a> Question 5 of 5</div>
-            <h1 class="midi">Connect to Google Analytics</h1>
 
-      <div class="form-group js-ga-connect-status">
-        <p>
-          We use your analytics data to compute your completion rate.
-        </p>
-        <button class="button button-external js-connect-ga" type="button">Connect to Google
-          Analytics
-        </button>
+<div class="question-number">
+  <a class="link-back" href="/question4"><span class="fa fa-caret-left"></span>Back</a> Question 5 of 5
+</div>
+
+<div class="grid-row">
+  <form class="text" action="/summary">
+
+    <h1 class="midi">Connect to Google Analytics</h1>
+
+    <div class="form-group js-ga-connect-status">
+      <p>We use your analytics data to calculate your completion rate.</p>
+
+      <button class="button button-external js-connect-ga" type="button">
+        Connect to Google Analytics
+      </button>
+    </div>
+
+    <fieldset class="form-group hidden js-views-container">
+      <legend class="form-label-bold">Profiles</legend>
+      <div class="js-views"></div>
+    </fieldset>
+
+    <details class="form-group js-help">
+      <summary><span class="summary">I'm not using Google Analytics</span></summary>
+      <div class="panel-indent">
+        <fieldset class="form-group">
+          <legend class="form-label-bold">Which analytics provider are you using?</legend>
+
+          <label class="js-selectable block-label" for="omniture">
+            <input  id="omniture" name="analytics" type="radio" value="omniture">
+            Omniture
+          </label>
+          <label class="js-selectable block-label" for="piwik">
+            <input  id="piwik" name="analytics" type="radio" value="piwik">
+            Piwik
+          </label>
+          <label class="js-selectable block-label" for="webtrends">
+            <input  id="webtrends" name="analytics" type="radio" value="webtrends">
+            WebTrends
+          </label>
+          <label class="js-selectable block-label" for="other">
+            <input  id="other" name="analytics" type="radio" value="other">
+            Other: <input class="form-control" type="text" name="analytics_other_name" />
+          </label>
+        </fieldset>
+        <p>We will email you to help set up your analytics.</p>
       </div>
-      <fieldset class="form-group hidden js-views-container">
-        <legend class="form-label-bold">Profiles</legend>
-        <div class="js-views"></div>
-      </fieldset>
+    </details>
 
-      <details class="form-group js-help">
-        <summary><span class="summary">I'm not using Google Analytics</span></summary>
-        <div class="panel-indent">
-          <fieldset class="form-group">
-            <legend class="form-label-bold">Which analytics provider are you using?</legend>
+    <div class="js-goals">
+    </div>
 
-                            <label class="js-selectable block-label" for="omniture">
-                                <input  id="omniture" name="analytics" type="radio" value="omniture">
-                                Omniture
-                            </label>
-                            <label class="js-selectable block-label" for="piwik">
-                                <input  id="piwik" name="analytics" type="radio" value="piwik">
-                                Piwik
-                            </label>
-                            <label class="js-selectable block-label" for="webtrends">
-                                <input  id="webtrends" name="analytics" type="radio" value="webtrends">
-                                WebTrends
-                            </label>
-                            <label class="js-selectable block-label" for="other">
-                                <input  id="other" name="analytics" type="radio" value="other">
-                                Other: <input class="form-control" type="text" name="analytics_other_name" />
-                            </label>
-                        </fieldset>
-                            <p>We will email you to help set up your analytics.</p>
-                    </div>
-                </details>
-            <div class="js-goals">
-            </div>
-            <nav>
-                <button class="button">Continue</button>
-            </nav>
-        </form>
-    </article>
+    <nav>
+      <button class="button">Continue</button>
+    </nav>
+
+  </form>
+</div>
 {% endblock %}
 
 {% block body_end %}

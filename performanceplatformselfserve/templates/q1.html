@@ -8,56 +8,67 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-        <form action="/question2/">
-            {% csrf_token %}
-            <div class="question-number"><a class="link-back" href="/"><span class="fa fa-caret-left"></span>Back</a> Question 1 of 5</div>
-            <h1 class="midi"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
-            <div class="form-group">
-                <select class="dashboard-select" id="dashboard" required>
-                        <option value="" selected="selected"></option>
-                    {% for dashboard in dashboards %}
-                        <option value="{{ dashboard.slug }}">{{ dashboard.title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="dashboard-select-details">
-            </div>
-            <p>
-                <details>
-                    <summary><span class="summary">I can't find my dashboard</span></summary>
-                    <div class="panel-indent">
-                        <p class="form-group">
 
-              <label class="form-label" for="dashboard-name">Dashboard name</label>
-              <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
-            </p>
+<div class="question-number">
+  <a class="link-back" href="/"><span class="fa fa-caret-left"></span>Back</a> Question 1 of 5
+</div>
 
-            <p class="form-group">
+<div class="grid-row">
+  <form class="text" action="/question2/">
 
-              <label class="form-label" for="description">Description</label>
-              <textarea class="form-control form-control-full-width" rows="3"
-              name="new_dashboard_description" id="description"></textarea>
-            </p>
+    {% csrf_token %}
 
-            <p class="form-group">
-              <label for="organisation">Organisation</label>
-              <br/>
-              <select id="organisation" name="new_dashboard_organisation">
-                <option selected="selected"></option>
-                {% for organisation in organisations %}
-                <option>{{ organisation.name }}</option>
-                {% endfor %}
-              </select>
-            </p>
-          </div>
-        </details>
-      </p>
-      <nav>
-        <button class="button">Continue</button>
-      </nav>
-    </form>
-  </article>
+    <h1 class="midi"><label for="dashboard">What dashboard do you want to add data to</label>?</h1>
+
+    <div class="form-group">
+      <select data-placeholder="Find a dashboard" class="dashboard-select" id="dashboard" required>
+        <option value="" selected="selected"></option>
+        {% for dashboard in dashboards %}
+        <option value="{{ dashboard.slug }}">{{ dashboard.title }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="dashboard-select-details">
+    </div>
+
+    <p>
+      <details>
+        <summary><span class="summary">I can't find my dashboard</span></summary>
+        <div class="panel-indent">
+          <p class="form-group">
+
+            <label class="form-label" for="dashboard-name">Dashboard name</label>
+            <input name="new_dashboard_name" id="dashboard-name" type="text" class="form-control" value="">
+          </p>
+
+          <p class="form-group">
+
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control form-control-full-width" rows="3"
+            name="new_dashboard_description" id="description"></textarea>
+          </p>
+
+          <p class="form-group">
+            <label for="organisation">Organisation</label>
+            <br/>
+            <select id="organisation" name="new_dashboard_organisation">
+              <option selected="selected"></option>
+              {% for organisation in organisations %}
+              <option>{{ organisation.name }}</option>
+              {% endfor %}
+            </select>
+          </p>
+        </div>
+      </details>
+    </p>
+
+    <nav>
+      <button class="button">Continue</button>
+    </nav>
+
+  </form>
+</div>
 {% endblock %}
 
 {% block body_end %}

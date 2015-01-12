@@ -7,99 +7,107 @@
 {% endblock %}
 
 {% block selfserve_content %}
-    <article class="text">
-        <div class="question-number"><a class="link-back" href="/question2"><span class="fa fa-caret-left"></span>Back</a> Question 3 of 5</div>
-        <form action="/question4">
-            <h1 class="midi">How can people use your service?</h1>
-      <p>
-        Select all the ways people can complete a transaction.
-      </p>
 
-      <p class="panel-indent">Don't include contact methods where people can't actually complete the transaction. For
-        example, don't include 'telephone' if the operator will just tell you to go and fill in a
-        form.</p>
+<div class="question-number">
+  <a class="link-back" href="/question2"><span class="fa fa-caret-left"></span>Back</a> Question 3 of 5
+</div>
 
-        <fieldset class="form-group">
-          <legend class="form-label-bold">Digital channels</legend>
-          <label class="block-label" for="digitalchannels-website">
-            <input id="digitalchannels-website" name="digitalchannels" type="checkbox"
-            value="website">
-            Website
-          </label>
-          <label class="block-label" for="digitalchannels-mobileapp">
-            <input id="digitalchannels-mobileapp" name="digitalchannels" type="checkbox"
-            value="mobileapp">
-            Mobile app
-          </label>
-          <label class="block-label" for="digitalchannels-api">
-            <input id="digitalchannels-api" name="digitalchannels" type="checkbox" value="api">
-            API
-          </label>
-        </fieldset>
-        <fieldset class="form-group">
-          <legend class="form-label-bold">Non-digital channels</legend>
-          <label class="block-label" for="digitalchannels-phonehuman">
-            <input id="digitalchannels-phonehuman" name="nondigitalchannels" type="checkbox"
-            value="phonehuman">
-            Telephone (human operator)
-          </label>
-          <label class="block-label" for="digitalchannels-phoneautomated">
-            <input id="digitalchannels-phoneautomated" name="nondigitalchannels"
-            type="checkbox" value="phoneautomated">
-            Telephone (automated)
-          </label>
-          <label class="block-label" for="digitalchannels-paperform">
-            <input id="digitalchannels-paperform" name="nondigitalchannels" type="checkbox"
-            value="paperform">
-            Paper form
-          </label>
-          <label class="block-label" for="digitalchannels-facetoface">
-            <input id="digitalchannels-facetoface" name="nondigitalchannels" type="checkbox"
-            value="facetoface">
-            Face to face
-          </label>
-          <label class="block-label" for="digitalchannels-email">
-            <input id="digitalchannels-email" name="nondigitalchannels" type="checkbox"
-            value="email">
-            Email
-          </label>
-          <label class="block-label" for="digitalchannels-fax">
-            <input id="digitalchannels-fax" name="nondigitalchannels" type="checkbox"
-            value="fax">
-            Fax
-          </label>
-          <label class="block-label" for="digitalchannels-facebook">
-            <input id="digitalchannels-facebook" name="nondigitalchannels" type="checkbox"
-            value="facebook">
-            Facebook
-          </label>
-          <label class="block-label" for="digitalchannels-twitter">
-            <input id="digitalchannels-twitter" name="nondigitalchannels" type="checkbox"
-            value="twitter">
-            Twitter
-          </label>
-        </fieldset>
-        <div class="form-group">
-          <details>
-            <summary><span class="summary">Help with channels</span></summary>
-            <div class="panel-indent">
-              TBC
-            </div>
-          </details>
-        </div>
-        <nav>
-          <button class="button">Continue</button>
-        </nav>
-      </form>
-    </article>
-  {% endblock %}
+<div class="grid-row">
+<form class="text" action="/question4">
 
-  {% block body_end %}
-  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-  <script src="/static/vendor/assets/bower_components/webshims/polyfiller.js"></script>
-  <script>
-    webshim.setOptions('basePath', '/static/vendor/assets/bower_components/webshims/shims/');
-    webshim.polyfill('forms');
-    webshim.setOptions('forms', {addValidators: true});
-  </script>
-  {% endblock %}
+  <h1 class="midi">How can people use your service?</h1>
+
+  <p>Select all the ways people can complete a transaction.</p>
+
+  <p class="panel-indent">Don't include contact methods where people can't actually complete the transaction. For
+      example, don't include 'telephone' if the operator will just tell you to go and fill in a
+      form.</p>
+
+  <fieldset class="form-group">
+    <legend class="form-label-bold">Digital channels</legend>
+    <label class="block-label" for="digitalchannels-website">
+      <input id="digitalchannels-website" name="digitalchannels" type="checkbox"
+      value="website">
+      Website
+    </label>
+    <label class="block-label" for="digitalchannels-mobileapp">
+      <input id="digitalchannels-mobileapp" name="digitalchannels" type="checkbox"
+      value="mobileapp">
+      Mobile app
+    </label>
+    <label class="block-label" for="digitalchannels-api">
+      <input id="digitalchannels-api" name="digitalchannels" type="checkbox" value="api">
+      API
+    </label>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <legend class="form-label-bold">Non-digital channels</legend>
+    <label class="block-label" for="digitalchannels-phonehuman">
+      <input id="digitalchannels-phonehuman" name="nondigitalchannels" type="checkbox"
+      value="phonehuman">
+      Telephone (human operator)
+    </label>
+    <label class="block-label" for="digitalchannels-phoneautomated">
+      <input id="digitalchannels-phoneautomated" name="nondigitalchannels"
+      type="checkbox" value="phoneautomated">
+      Telephone (automated)
+    </label>
+    <label class="block-label" for="digitalchannels-paperform">
+      <input id="digitalchannels-paperform" name="nondigitalchannels" type="checkbox"
+      value="paperform">
+      Paper form
+    </label>
+    <label class="block-label" for="digitalchannels-facetoface">
+      <input id="digitalchannels-facetoface" name="nondigitalchannels" type="checkbox"
+      value="facetoface">
+      Face to face
+    </label>
+    <label class="block-label" for="digitalchannels-email">
+      <input id="digitalchannels-email" name="nondigitalchannels" type="checkbox"
+      value="email">
+      Email
+    </label>
+    <label class="block-label" for="digitalchannels-fax">
+      <input id="digitalchannels-fax" name="nondigitalchannels" type="checkbox"
+      value="fax">
+      Fax
+    </label>
+    <label class="block-label" for="digitalchannels-facebook">
+      <input id="digitalchannels-facebook" name="nondigitalchannels" type="checkbox"
+      value="facebook">
+      Facebook
+    </label>
+    <label class="block-label" for="digitalchannels-twitter">
+      <input id="digitalchannels-twitter" name="nondigitalchannels" type="checkbox"
+      value="twitter">
+      Twitter
+    </label>
+  </fieldset>
+
+  <div class="form-group">
+    <details>
+      <summary><span class="summary">Help with channels</span></summary>
+      <div class="panel-indent">
+        TBC
+      </div>
+    </details>
+  </div>
+
+  <nav>
+    <button class="button">Continue</button>
+  </nav>
+</form>
+
+</div>
+{% endblock %}
+
+{% block body_end %}
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="/static/vendor/assets/bower_components/webshims/polyfiller.js"></script>
+<script>
+  webshim.setOptions('basePath', '/static/vendor/assets/bower_components/webshims/shims/');
+  webshim.polyfill('forms');
+  webshim.setOptions('forms', {addValidators: true});
+</script>
+{% endblock %}
