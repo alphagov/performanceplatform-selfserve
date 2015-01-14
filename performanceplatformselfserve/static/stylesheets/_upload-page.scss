@@ -1,6 +1,11 @@
 
 .upload-step {
 
+  p {
+    line-height: (30/19);
+    min-height: 60px;
+  }
+
   .step-1-img, .step-2-img {
     display: block;
     border: 1px solid $border-colour;

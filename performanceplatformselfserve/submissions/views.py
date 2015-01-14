@@ -91,6 +91,12 @@ def question4(request):
     )
     return HttpResponse(t.render(context))
 
+def download_spreadsheet(request):
+    spreadsheet = open("performanceplatformselfserve/static/downloads/example-data-import.xls","rb").read()
+    response = HttpResponse(spreadsheet, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="example-data-import.xls"'
+    return response
+
 def question5(request):
     if 'channels_use_direct_api' in request.GET:
         request.session['channels_use_direct_api'] = 'yes'

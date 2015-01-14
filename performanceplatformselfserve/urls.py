@@ -42,5 +42,8 @@ urlpatterns = patterns(
         'performanceplatformselfserve.submissions.views.view_template',
         name='view_template'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^downloads/example-data-import.xls',
+        'performanceplatformselfserve.submissions.views.download_spreadsheet',
+        name='download_spreadsheet'),
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
